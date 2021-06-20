@@ -53,9 +53,6 @@ img,video{max-width:100%;height:auto}
   font-family: var(--font-primary-cn);
 }
 
-main {
-  height: 600px;
-}
 
 :root {
   /* base font family */
@@ -81,8 +78,13 @@ main {
   --green-600: #3c6851;
 
   /* gray */
-
+  --gray-700: #262626;
+  --gray-600: #484848;
   --gray-500: #545555;
+  --gray-400: #8C8C8C;
+  --gray-300: #E8E8E8;
+  --gray-200: #F2F2F2;
+  --gray-100: #fefefe;
 
 
   /* tag color */

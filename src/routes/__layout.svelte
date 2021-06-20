@@ -1,5 +1,6 @@
 <script>
   import Footer from '$lib/layout/Footer.svelte'
+  import Header from '$lib/layout/Header.svelte'
 </script>
 
 <style>
@@ -7,6 +8,8 @@
 </style>
 
 <!-- markup (zero or more items) goes here -->
+
+<Header />
 
 <main>
   <slot />

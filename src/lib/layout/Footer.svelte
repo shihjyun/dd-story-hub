@@ -16,6 +16,7 @@
     font-size: var(--text-sm);
     color: rgb(39, 39, 39);
     text-align: center;
+    letter-spacing: 0.025em;
   }
 
   div {
