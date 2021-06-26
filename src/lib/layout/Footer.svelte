@@ -8,13 +8,13 @@
     justify-content: center;
     width: 100%;
     height: 15vh;
-    background-color: var(--green-200);
+    background-color: var(--green-0);
     margin-top: 4rem;
   }
 
   p {
     font-size: var(--text-sm);
-    color: rgb(39, 39, 39);
+    color: var(--green-6);
     text-align: center;
     letter-spacing: 0.025em;
   }
@@ -30,12 +30,12 @@
   }
   svg {
     width: 24px;
-    fill: var(--gray-500);
+    fill: var(--gray-5);
     transition: fill 0.15s linear;
   }
 
   svg:hover {
-    fill: var(--green-600);
+    fill: var(--green-6);
   }
 
   @media (min-width: 650px) {

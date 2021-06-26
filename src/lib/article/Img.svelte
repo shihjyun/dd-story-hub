@@ -12,21 +12,11 @@
 <style>
   /* base */
   figure {
-    grid-column: 4 / 10;
-    padding-bottom: 40px;
+    padding-bottom: var(--space-5);
     width: 100%;
   }
 
-  /* cover */
-  figure.cover {
-    grid-column: 1 / 13;
-  }
-
   /* side-by-side */
-  figure.side-by-side {
-    grid-column: 2 / 12;
-  }
-
   .side-by-side > .wrap {
     display: grid;
     grid-template-columns: auto auto;
@@ -44,9 +34,40 @@
   /* note */
   figcaption {
     text-align: center;
-    font-size: var(--text-sm);
+    font-size: var(--font-size-0);
     padding-top: 10px;
-    color: var(--gray-400);
+    color: var(--gray-4);
+  }
+
+  @media (min-width: 576px) {
+    figure {
+      padding-bottom: var(--space-6);
+    }
+
+    figure.cover {
+      width: 100vw;
+      transform: translateX(calc((576px - 100vw) / 2));
+      padding-bottom: var(--space-8);
+    }
+
+    figcaption {
+      font-size: var(--font-size-1);
+    }
+  }
+
+  /* img breakpoint */
+  @media (min-width: 640px) {
+    figure {
+      width: 640px;
+      transform: translateX(calc((576px - 640px) / 2));
+    }
+  }
+
+  @media (min-width: 800px) {
+    figure.side-by-side {
+      width: 800px;
+      transform: translateX(calc((576px - 800px) / 2));
+    }
   }
 </style>
 

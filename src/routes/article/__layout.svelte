@@ -24,75 +24,114 @@
 <style>
   .article-meta {
     width: 100%;
-    display: grid;
-    grid-template-columns: repeat(12, 1fr);
-    grid-column-gap: 10px;
-    margin: 0 auto 30px auto;
-    max-width: 1200px;
+    margin: 0 auto var(--space-6) auto;
+    max-width: 576px;
+    padding: 0 var(--space-2);
   }
 
   .article-meta :global(h1) {
     display: block;
-    grid-column: 3 / 11;
-    font-size: 36px;
-    padding: 24px 30px 10px 30px;
+    font-size: var(--font-size-4);
+    padding: var(--space-2) 0;
     font-weight: 500;
-    letter-spacing: 0.025em;
-    color: var(--gray-700);
+    letter-spacing: var(--letter-spacing-wide);
+    color: var(--gray-7);
   }
 
   .article-meta > div {
     display: flex;
-    grid-column: 3 / 11;
-    padding: 10px 30px 10px 30px;
   }
 
   .article-meta > div > div {
-    padding-right: 40px;
-    color: var(--gray-600);
-    letter-spacing: 0.025em;
+    padding-right: var(--space-5);
+    color: var(--gray-5);
+    letter-spacing: var(--letter-spacing-wide);
+    font-size: var(--font-size-1);
   }
 
   article {
     width: 100%;
-    display: grid;
-    grid-template-columns: repeat(12, 1fr);
-    grid-column-gap: 10px;
     margin: 0 auto;
-    max-width: 1200px;
+    max-width: 576px;
+    padding: 0 var(--space-2);
   }
 
   article :global(h2) {
     display: block;
-    grid-column: 4 / 10;
-    font-size: 28px;
-    padding: 24px 30px 36px 30px;
+    font-size: var(--font-size-4);
+    padding: var(--space-5) 0 var(--space-2) 0;
   }
 
   article > :global(p) {
-    grid-column: 4 / 10;
-    font-size: var(--text-base);
-    color: var(--gray-700);
-    letter-spacing: 0.05em;
-    line-height: 1.6;
-    padding: 0 30px 24px 30px;
+    font-size: var(--font-size-2);
+    color: var(--gray-6);
+    line-height: var(--line-height-4);
+    letter-spacing: var(--letter-spacing-wide);
+    padding-bottom: var(--space-5);
   }
 
   article :global(ul) {
-    grid-column: 4 / 10;
-    letter-spacing: 0.05em;
-    padding: 0 30px 24px 30px;
-    margin-left: 24px;
+    letter-spacing: var(--letter-spacing-wide);
+    margin-left: var(--space-5);
     list-style-position: outside;
     list-style-type: disc;
   }
 
   article :global(li) {
-    font-size: var(--text-base);
-    color: var(--gray-700);
-    letter-spacing: 0.05em;
-    line-height: 1.6;
-    padding: 0 10px 18px 0;
+    font-size: var(--font-size-2);
+    color: var(--gray-6);
+    line-height: var(--line-height-3);
+    letter-spacing: var(--letter-spacing-wide);
+    padding-bottom: var(--space-4);
+  }
+
+  article :global(li:last-of-type) {
+    padding-bottom: var(--space-5);
+  }
+
+  @media (min-width: 576px) {
+    .article-meta :global(h1) {
+      font-size: var(--font-size-6);
+      padding: var(--space-3) 0;
+    }
+
+    .article-meta > div {
+      display: flex;
+    }
+
+    .article-meta > div > div {
+      padding-right: var(--space-7);
+      font-size: var(--font-size-2);
+    }
+
+    article {
+      padding: 0 0;
+    }
+
+    article :global(h2) {
+      display: block;
+      font-size: var(--font-size-5);
+      padding: var(--space-5) 0 var(--space-3) 0;
+    }
+
+    article > :global(p) {
+      font-size: var(--font-size-3);
+      line-height: var(--line-height-5);
+      padding-bottom: var(--space-6);
+    }
+
+    article :global(li) {
+      font-size: var(--font-size-3);
+      line-height: var(--line-height-4);
+      padding-bottom: var(--space-5);
+    }
+
+    article :global(li:last-of-type) {
+      padding-bottom: var(--space-6);
+    }
+  }
+
+  @media (min-width: 992px) {
   }
 </style>
 

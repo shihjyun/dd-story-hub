@@ -13,27 +13,19 @@
 
 <style>
   .intro {
-    font-size: var(--text-base);
-    color: var(--gray-700);
+    font-size: var(--font-size-2);
+    color: var(--gray-6);
     max-width: 520px;
     margin: 0 auto;
-    letter-spacing: 0.05em;
-    line-height: 1.8;
+    letter-spacing: var(--letter-spacing);
+    line-height: 1.75;
+    padding: 0 var(--space-2) 0 var(--space-2);
   }
 
-  .intro-article {
-    padding-bottom: 40px;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, 250px);
-    grid-auto-flow: row;
-    gap: 16px;
-    justify-content: center;
-    margin: 0 auto;
-    width: 800px;
-  }
-
-  .intro-article > img {
-    height: 200px;
+  @media (min-width: 576px) {
+    .intro {
+      line-height: var(--line-height-5);
+    }
   }
 </style>
 
