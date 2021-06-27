@@ -13,4 +13,21 @@ const formatDate =  (date) => {
   return [year, month, day].join('-')
 }
 
-export { slugFromPath, formatDate }
+const categoryPathName = (category) => {
+  switch (category) {
+    case '資料故事':
+      return 'data-story'
+      break;
+    case '經驗分享':
+      return 'experience-sharing'
+      break;
+    case '敘事研究':
+      return 'research'
+      break;
+    default:
+      return 'all'
+      break;
+  }
+}
+
+export { slugFromPath, formatDate, categoryPathName }
