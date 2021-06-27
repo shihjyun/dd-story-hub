@@ -1,5 +1,6 @@
 <script>
   export let articleData
+  export let title = '我們'
 </script>
 
 <style>
@@ -68,7 +69,7 @@
   }
 </style>
 
-<h2 class="read-more-title">我們的文章</h2>
+<h2 class="read-more-title">{title}的文章</h2>
 
 <div class="read-more-wrap">
   {#each articleData.slice(0, 6) as { title, cover_image, slug }}

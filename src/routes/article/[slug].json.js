@@ -1,7 +1,7 @@
 import { slugFromPath } from '$lib/utils.js'
 
 export async function get({ params }) {
-	const modules = import.meta.glob(`./*.{md,svx,svelte.md}`);
+	const modules = import.meta.glob(`./*.md`);
 
 	// match article data from modules
 	let match;

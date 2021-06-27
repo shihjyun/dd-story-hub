@@ -1,7 +1,7 @@
 import { slugFromPath, categoryPathName } from '$lib/utils.js'
 
 export async function get({ query }) {
-	const modules = import.meta.glob('./*.{md,svx,svelte.md}');
+	const modules = import.meta.glob(`./*.md`);
 
 	const articlePromises = [];
 	const limit = Number(query.get('limit') ?? Infinity);
@@ -11,7 +11,8 @@ export async function get({ query }) {
 
 	if (Number.isNaN(limit)) {
 		return {
-			status: 400
+			status: 404,
+			error: new Error(),
 		};
 	}
 
@@ -32,16 +33,18 @@ export async function get({ query }) {
 	const publishedArticles = articles
 		.sort((a, b) => (new Date(a.date) > new Date(b.date) ? -1 : 1))
 		.filter(d => category === 'all' | categoryPathName(d.category) === category)
+		.filter(d => author === 'all' | d.author_id === author)
 		.slice(0, limit);
 
-	// if publishedArticles is empty return error status code
+	// if publishedArticles is empty return error 
 	if (typeof publishedArticles !== 'undefined' && publishedArticles.length > 0) {
 		return {
 			body: publishedArticles
 		};
 	} else {
 		return {
-			status: 400
+			status: 404,
+			error: new Error(),
 		};
 	}
 

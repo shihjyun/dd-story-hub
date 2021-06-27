@@ -1,9 +1,10 @@
 <script context="module">
   export async function load({ page, fetch }) {
     const article = await fetch(`${page.path}.json`).then((res) => res.json())
+
     if (!article) {
       return {
-        status: 404,
+        status: 400,
         error: new Error('Article could not be found'),
       }
     }
@@ -90,6 +91,10 @@
   }
 
   @media (min-width: 576px) {
+    .article-meta {
+      padding: 0;
+    }
+
     .article-meta :global(h1) {
       font-size: var(--font-size-6);
       padding: var(--space-3) 0;
