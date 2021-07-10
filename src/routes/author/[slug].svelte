@@ -22,8 +22,6 @@
 <script>
   import ArticleList from '$lib/shared/ArticleList.svelte'
   export let data, author
-
-  console.log(author)
 </script>
 
 <style>

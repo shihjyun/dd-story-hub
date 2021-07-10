@@ -143,7 +143,7 @@
 <div class="article-meta">
   <h1>{article.title}</h1>
   <div>
-    <div class="author">作者：{article.author}</div>
+    <div class="author">作者：<a sveltekit:prefetch href={`../author/${article.author_id}`}>{article.author}</a></div>
     <div class="date">發布時間：{formatDate(article.published_date)}</div>
   </div>
 </div>

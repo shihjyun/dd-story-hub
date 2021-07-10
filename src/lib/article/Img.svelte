@@ -2,14 +2,43 @@
   export let src
   export let type = 'base'
   export let alt = ''
-  export let note
   export let srcLeft
   export let srcRight
   export let altLeft = ''
   export let altRight = ''
+
+  import { onMount } from 'svelte'
+  import { getSideBySideImgOptimalWidth } from '$lib/article/utlis.js'
+
+  let leftImg, rightImg
+  let mounted = false
+  let sideBySideWidthRatio
+
+  onMount(() => {
+    mounted = true
+  })
+
+  $: if (mounted && leftImg && rightImg) {
+    // right side image will load before left side iamge
+    rightImg.onload = function () {
+      sideBySideWidthRatio = getSideBySideImgOptimalWidth(leftImg, rightImg)
+      leftImg.parentNode.style.width = sideBySideWidthRatio.leftRatio + '%'
+      rightImg.parentNode.style.width = sideBySideWidthRatio.rightRatio + '%'
+    }
+
+    // handle safari cache problem
+    if (rightImg.complete) {
+      sideBySideWidthRatio = getSideBySideImgOptimalWidth(leftImg, rightImg)
+      leftImg.parentNode.style.width = sideBySideWidthRatio.leftRatio + '%'
+      rightImg.parentNode.style.width = sideBySideWidthRatio.rightRatio + '%'
+    }
+  }
 </script>
 
 <style>
+  figcaption > :global(a) {
+    text-decoration: underline;
+  }
   /* base */
   figure {
     padding-bottom: var(--space-5);
@@ -18,16 +47,12 @@
 
   /* side-by-side */
   .side-by-side > .wrap {
-    display: grid;
-    grid-template-columns: auto auto;
+    display: flex;
+    flex-direction: row;
     gap: 10px;
   }
 
-  .wrap > img {
-    max-height: 400px;
-  }
-
-  .wrap > img:nth-of-type(1) {
+  .wrap > div:nth-of-type(1) {
     margin-left: auto;
   }
 
@@ -77,9 +102,10 @@
   {:else if type === 'cover'}
     <img class="cover" {src} {alt} />
   {:else if type === 'side-by-side'}
-    <div class="wrap"><img src={srcLeft} alt={altLeft} /><img src={srcRight} alt={altRight} /></div>
+    <div class="wrap">
+      <div><img bind:this={leftImg} src={srcLeft} alt={altLeft} /></div>
+      <div><img bind:this={rightImg} src={srcRight} alt={altRight} /></div>
+    </div>
   {/if}
-  {#if note}
-    <figcaption>{note}</figcaption>
-  {/if}
+  <figcaption><slot /></figcaption>
 </figure>
