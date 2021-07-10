@@ -12,10 +12,7 @@ const config = {
 			assets: 'build',
 			fallback: null
 		}),
-		target: '#svelte',
-		prerender: {
-			force: true
-		},
+		target: '#svelte'
 	},
 
 	// options passed to svelte.preprocess (https://svelte.dev/docs#svelte_preprocess)
