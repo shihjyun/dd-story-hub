@@ -2,58 +2,39 @@
 </script>
 
 <style>
-  footer {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    width: 100%;
-    height: 15vh;
-    background-color: var(--green-0);
-    margin-top: 4rem;
+  .content {
+    height: 300px;
+    background-color: var(--grey-0);
   }
 
-  p {
+  .copyright {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    height: 34px;
+    background-color: var(--green-5);
     font-size: var(--text-sm);
     color: var(--green-6);
-    text-align: center;
-    letter-spacing: 0.025em;
   }
 
-  div {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-top: 1rem;
-  }
-  a {
-    margin: 0 0.75rem;
-  }
-  svg {
-    width: 24px;
-    fill: var(--gray-5);
-    transition: fill 0.15s linear;
+  .copyright > p {
+    font-family: Roboto;
+    letter-spacing: var(--letter-spacing-wide);
+    margin: 0 auto;
+    width: 75vw;
+    font-size: var(--font-size-0);
+    color: var(--grey-0);
   }
 
   svg:hover {
     fill: var(--green-6);
   }
 
-  @media (min-width: 650px) {
-    div {
-      margin-top: 1rem;
-    }
+  @media (min-width: 768px) {
   }
 </style>
 
 <footer>
-  <p>©2021 融數基地 DD Story Hub</p>
-  <div>
-    <a href="https://medium.com/dd-story-hub" target="_blank"
-      ><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1770 1000">
-        <circle cx="500" cy="500" r="500" />
-        <ellipse ry="475" rx="250" cy="501" cx="1296" />
-        <ellipse cx="1682" cy="502" rx="88" ry="424" />
-      </svg></a
-    >
-  </div>
+  <div class="content" />
+  <div class="copyright"><p>©2021 DD Story Hub</p></div>
 </footer>
