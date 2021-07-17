@@ -1,6 +1,6 @@
 <script>
   import Footer from '$lib/layout/Footer.svelte'
-  import Header from '$lib/layout/Header.svelte'
+  import Nav from '$lib/layout/Nav.svelte'
 </script>
 
 <style>
@@ -9,7 +9,7 @@
 
 <!-- markup (zero or more items) goes here -->
 
-<Header />
+<Nav />
 
 <main>
   <slot />
