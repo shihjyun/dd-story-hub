@@ -36,7 +36,7 @@
     padding: var(--space-2) 0;
     font-weight: 500;
     letter-spacing: var(--letter-spacing-wide);
-    color: var(--gray-7);
+    color: var(--grey-7);
   }
 
   .article-meta > div {
@@ -45,7 +45,7 @@
 
   .article-meta > div > div {
     padding-right: var(--space-5);
-    color: var(--gray-5);
+    color: var(--grey-5);
     letter-spacing: var(--letter-spacing-wide);
     font-size: var(--font-size-1);
   }
@@ -65,7 +65,7 @@
 
   article > :global(p) {
     font-size: var(--font-size-2);
-    color: var(--gray-6);
+    color: var(--grey-6);
     line-height: var(--line-height-4);
     letter-spacing: var(--letter-spacing-wide);
     padding-bottom: var(--space-5);
@@ -80,7 +80,7 @@
 
   article :global(li) {
     font-size: var(--font-size-2);
-    color: var(--gray-6);
+    color: var(--grey-6);
     line-height: var(--line-height-3);
     letter-spacing: var(--letter-spacing-wide);
     padding-bottom: var(--space-4);

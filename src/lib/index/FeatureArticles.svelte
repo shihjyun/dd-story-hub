@@ -105,7 +105,7 @@
   <div class="articles-wrap">
     <h2>精選文章</h2>
     <div class="articles">
-      {#each articles.slice(0, 4) as { cover_image, slug, title, description, published_date }}
+      {#each articles.slice(0, 2) as { cover_image, slug, title, description, published_date }}
         <div class="article">
           <a class="cover" href={`/article/${slug}`} sveltekit:prefetch><img src={cover_image} alt="" /></a>
           <a class="title" href={`/article/${slug}`} sveltekit:prefetch>{title}</a>

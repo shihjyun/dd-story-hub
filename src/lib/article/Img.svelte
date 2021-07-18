@@ -61,7 +61,7 @@
     text-align: center;
     font-size: var(--font-size-0);
     padding-top: 10px;
-    color: var(--gray-4);
+    color: var(--grey-4);
   }
 
   @media (min-width: 576px) {

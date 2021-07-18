@@ -37,6 +37,7 @@
     justify-content: center;
     margin: var(--space-8) auto var(--space-8) auto;
     padding: 0 var(--space-7) 0 var(--space-7);
+    user-select: none;
   }
 
   .btns {
@@ -50,7 +51,7 @@
   .btns > svg {
     width: 24px;
     padding: var(--space-2) 0;
-    fill: var(--gray-5);
+    fill: var(--grey-5);
     cursor: pointer;
   }
 
@@ -60,6 +61,10 @@
 
   .btns > svg:nth-of-type(2) {
     margin-right: var(--space-7);
+  }
+
+  .btns > svg:hover {
+    fill: var(--grey-3);
   }
 
   .content {
@@ -107,6 +112,7 @@
   @media (min-width: 768px) {
     .content-carousel {
       width: 80%;
+      height: 437px;
     }
 
     .content {
