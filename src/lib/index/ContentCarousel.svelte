@@ -94,7 +94,7 @@
 
   .content > .title {
     color: var(--grey-7);
-    font-weight: 600;
+    font-weight: bold;
     text-align: center;
     transition: color 0.1s linear;
   }

@@ -94,12 +94,12 @@
 
   svg {
     width: 24px;
-    fill: var(--grey-6);
+    fill: var(--grey-8);
     transition: fill 0.1s linear;
   }
 
   svg:hover {
-    fill: var(--grey-5);
+    fill: var(--grey-6);
   }
 
   /* hover nav */

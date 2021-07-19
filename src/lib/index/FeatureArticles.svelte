@@ -47,7 +47,7 @@
   .article > .title {
     display: block;
     color: var(--grey-7);
-    font-weight: 600;
+    font-weight: bold;
     transition: color 0.1s linear;
     margin-bottom: var(--space-3);
     line-height: var(--line-height-heading);

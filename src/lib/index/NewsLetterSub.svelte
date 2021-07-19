@@ -19,7 +19,7 @@
 
   .input-wrap {
     display: grid;
-    grid-template-columns: 0.85fr 0.15fr;
+    grid-template-columns: 0.82fr 0.18fr;
     margin-left: var(--space-5);
   }
 
@@ -36,14 +36,19 @@
   }
 
   button {
-    font-size: var(--font-size-7);
+    font-size: var(--font-size-5);
     background-color: var(--grey-3);
     color: var(--green-6);
     font-family: Roboto;
+    transition: color 0.15s linear;
   }
 
   button:focus {
     outline: 0;
+  }
+
+  button:hover {
+    background-color: var(--grey-2);
   }
 
   @media (min-width: 768px) {
@@ -70,6 +75,6 @@
       autocomplete="email"
       aria-invalid="false"
     />
-    <button>→</button>
+    <button>送出</button>
   </div>
 </div>
