@@ -1,4 +1,4 @@
-import { slugFromPath, categoryPathName } from '$lib/utils.js'
+import { slugFromPath, categoryPathName } from '$lib/utils/utils.js'
 
 export async function get({ query }) {
 	const modules = import.meta.glob(`./*.md`);

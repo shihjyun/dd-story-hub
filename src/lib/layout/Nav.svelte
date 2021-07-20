@@ -25,7 +25,7 @@
   }
 
   .nav-main-items {
-    width: 75vw;
+    width: 85vw;
     display: grid;
     grid-template-columns: auto auto 1fr;
     align-items: center;
@@ -121,7 +121,7 @@
   .hover-nav > div {
     display: grid;
     grid-template-columns: auto auto 1fr;
-    width: 75vw;
+    width: 85vw;
     margin: 0 auto;
     height: 100%;
   }
@@ -135,6 +135,14 @@
 
   .hover-nav > div > ul > li {
     color: var(--grey-0);
+  }
+
+  @media (min-width: 1024px) {
+    .hover-nav > div,
+    .nav-main-items {
+      width: 75vw;
+      max-width: 1440px;
+    }
   }
 </style>
 

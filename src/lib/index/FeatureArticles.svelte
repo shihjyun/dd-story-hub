@@ -82,7 +82,7 @@
     }
 
     .articles-wrap {
-      width: 75vw;
+      width: 85vw;
       margin: 0 auto;
     }
 
@@ -98,6 +98,10 @@
   }
 
   @media (min-width: 1024px) {
+    .articles-wrap {
+      width: 75vw;
+      max-width: 1440px;
+    }
   }
 </style>
 

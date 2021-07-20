@@ -17,7 +17,7 @@
 </script>
 
 <script>
-  import { formatDate } from '$lib/utils.js'
+  import { formatDate } from '$lib/utils/utils.js'
 
   export let article
 </script>

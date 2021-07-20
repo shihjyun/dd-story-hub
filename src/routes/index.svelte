@@ -12,8 +12,6 @@
   import NewsLetterSub from '$lib/index/NewsLetterSub.svelte'
   import CategoryArticles from '$lib/index/CategoryArticles.svelte'
   export let data
-
-  console.log(data)
 </script>
 
 <style>

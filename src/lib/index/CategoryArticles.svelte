@@ -1,6 +1,6 @@
 <script>
   import { fade } from 'svelte/transition'
-  import { categoryPathName } from '$lib/utils'
+  import { categoryPathName } from '$lib/utils/utils.js'
   import { timeFormat } from 'd3-time-format'
 
   export let articles
@@ -148,7 +148,7 @@
     }
 
     .articles-wrap {
-      width: 75vw;
+      width: 85vw;
       margin: 0 auto;
     }
 
@@ -169,6 +169,10 @@
   }
 
   @media (min-width: 1024px) {
+    .articles-wrap {
+      width: 75vw;
+      max-width: 1440px;
+    }
   }
 </style>
 

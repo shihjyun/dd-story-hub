@@ -72,6 +72,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    max-width: 570px;
   }
 
   .content > .cover {
@@ -132,17 +133,6 @@
 </style>
 
 <div class="content-carousel">
-  <!-- content -->
-  {#key currentContent}
-    <div in:fade class="content">
-      <a class="cover" href={`/article/${currentContent.slug}`} sveltekit:prefetch
-        ><img src={currentContent.cover_image} alt="" /></a
-      >
-      <div class="category">{currentContent.category}</div>
-      <a class="title" href={`/article/${currentContent.slug}`} sveltekit:prefetch>{currentContent.title}</a>
-      <div class="date">{format(Date.parse(currentContent.published_date))}</div>
-    </div>
-  {/key}
   <!-- btns -->
   <div class="btns">
     <svg
@@ -166,4 +156,15 @@
       y="0px"><g><path d="M6.5 5.5L11 10l-4.5 4.5L8 16l6-6-6-6-1.5 1.5z" /></g></svg
     >
   </div>
+  <!-- content -->
+  {#key currentContent}
+    <div in:fade class="content">
+      <a class="cover" href={`/article/${currentContent.slug}`} sveltekit:prefetch
+        ><img src={currentContent.cover_image} alt="" /></a
+      >
+      <div class="category">{currentContent.category}</div>
+      <a class="title" href={`/article/${currentContent.slug}`} sveltekit:prefetch>{currentContent.title}</a>
+      <div class="date">{format(Date.parse(currentContent.published_date))}</div>
+    </div>
+  {/key}
 </div>

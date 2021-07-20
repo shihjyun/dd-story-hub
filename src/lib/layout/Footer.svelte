@@ -63,14 +63,13 @@
     font-family: Roboto;
     letter-spacing: var(--letter-spacing-wide);
     margin: 0 auto;
-    width: 75vw;
     font-size: var(--font-size-0);
     color: var(--grey-0);
   }
 
   @media (min-width: 768px) {
     .content {
-      width: 75vw;
+      width: 85vw;
       padding: var(--space-8) 0;
     }
 
@@ -91,6 +90,18 @@
     .logo > img {
       width: 204px;
       margin-bottom: var(--space-4);
+    }
+
+    .copyright > p {
+      width: 85vw;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .content,
+    .copyright > p {
+      width: 75vw;
+      max-width: 1440px;
     }
   }
 </style>

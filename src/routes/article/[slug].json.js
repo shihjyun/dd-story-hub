@@ -1,4 +1,4 @@
-import { slugFromPath } from '$lib/utils.js'
+import { slugFromPath } from '$lib/utils/utils.js'
 
 export async function get({ params }) {
 	const modules = import.meta.glob(`./*.md`);
