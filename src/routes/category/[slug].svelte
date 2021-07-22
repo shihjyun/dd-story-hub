@@ -16,10 +16,3 @@
     }
   }
 </script>
-
-<script>
-  import ArticleList from '$lib/shared/ArticleList.svelte'
-  export let data
-</script>
-
-<ArticleList articleData={data} />
