@@ -3,12 +3,15 @@
 
 <style>
   /* foonter content */
+  footer {
+    background-color: var(--grey-1);
+  }
+
   .content {
     display: flex;
     justify-content: space-between;
     flex-direction: column;
     margin: 0 auto;
-    background-color: var(--grey-1);
     padding: var(--space-8) var(--space-7) var(--space-8) var(--space-7);
   }
 
