@@ -19,7 +19,7 @@
     position: sticky;
     top: 0;
     box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.15);
-    margin-bottom: var(--space-6);
+    margin-bottom: var(--space-4);
     z-index: 100000;
     user-select: none;
     height: 50px;
@@ -56,9 +56,9 @@
   .content {
     position: fixed;
     top: 0;
-    left: 25vw;
+    left: 26vw;
     width: 75vw;
-    height: 100vh;
+    height: 101vh;
     padding: var(--space-1) var(--space-4);
     background-color: white;
     opacity: 1;

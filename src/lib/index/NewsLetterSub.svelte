@@ -5,22 +5,24 @@
 <style>
   .news-sub {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: center;
+    flex-direction: column;
     background-color: var(--green-6);
-    height: 80px;
+    padding: var(--space-4);
   }
 
   .news-sub > span {
     color: var(--grey-1);
     font-size: var(--font-size-5);
     font-weight: 300;
+    padding-bottom: var(--space-4);
   }
 
   .input-wrap {
     display: grid;
-    grid-template-columns: 0.82fr 0.18fr;
-    margin-left: var(--space-5);
+    width: 100%;
+    grid-template-columns: 1fr;
   }
 
   .mail-input {
@@ -28,7 +30,7 @@
     font-family: Roboto;
     height: 46px;
     outline: 0;
-    padding: var(--space-1);
+    padding: var(--space-1) var(--space-3);
   }
 
   .mail-input:focus {
@@ -37,10 +39,11 @@
 
   button {
     font-size: var(--font-size-5);
-    background-color: var(--grey-3);
-    color: var(--green-6);
+    background-color: var(--grey-1);
+    color: var(--grey-7);
     font-family: Roboto;
     transition: color 0.15s linear;
+    padding: var(--space-1) 0;
   }
 
   button:focus {
@@ -52,8 +55,29 @@
   }
 
   @media (min-width: 768px) {
+    .news-sub {
+      flex-direction: row;
+      align-items: center;
+      padding: 0 var(--space-4);
+      height: 80px;
+    }
+
+    .news-sub > span {
+      padding-bottom: 0;
+    }
+
     .input-wrap {
       width: 45%;
+      grid-template-columns: 0.82fr 0.18fr;
+      margin-left: var(--space-5);
+    }
+
+    .mail-input {
+      padding: var(--space-1);
+    }
+
+    button {
+      padding: 0;
     }
   }
 

@@ -141,7 +141,7 @@
     .hover-nav > div,
     .nav-main-items {
       width: 75vw;
-      max-width: 1440px;
+      max-width: 1200px;
     }
   }
 </style>

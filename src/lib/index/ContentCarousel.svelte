@@ -35,17 +35,22 @@
     position: relative;
     display: flex;
     justify-content: center;
-    margin: var(--space-8) auto var(--space-8) auto;
-    padding: 0 var(--space-7) 0 var(--space-7);
+    align-items: flex-start;
+    margin: var(--space-4) auto var(--space-4) auto;
+    padding: 0 0 min(105%, 420px) 0;
     user-select: none;
+    width: 100%;
   }
 
+  /*     padding: 0 var(--space-4) 0 var(--space-4); */
+
   .btns {
-    bottom: 45%;
+    bottom: min(10%, 10px);
     width: 100%;
     position: absolute;
     display: flex;
     justify-content: space-between;
+    z-index: 2;
   }
 
   .btns > svg {
@@ -56,23 +61,22 @@
   }
 
   .btns > svg:nth-of-type(1) {
-    margin-left: var(--space-7);
+    margin-left: var(--space-2);
   }
 
   .btns > svg:nth-of-type(2) {
-    margin-right: var(--space-7);
-  }
-
-  .btns > svg:hover {
-    fill: var(--grey-3);
+    margin-right: var(--space-2);
   }
 
   .content {
+    position: absolute;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     max-width: 570px;
+    width: 100%;
+    padding: 0 var(--space-4) 0 var(--space-4);
   }
 
   .content > .cover {
@@ -94,8 +98,10 @@
   }
 
   .content > .title {
+    font-size: var(--font-size-5);
     color: var(--grey-7);
     font-weight: bold;
+    line-height: 1.7;
     text-align: center;
     transition: color 0.1s linear;
   }
@@ -112,22 +118,48 @@
 
   @media (min-width: 768px) {
     .content-carousel {
-      width: 80%;
-      height: 437px;
+      width: 90%;
+      height: 500px;
+      margin: var(--space-2) auto var(--space-2) auto;
+      padding: 0 var(--space-1) 0 var(--space-1);
     }
 
     .content {
+      position: initial;
       width: 70%;
     }
 
     .content > .title {
+      width: 100%;
       font-size: var(--font-size-7);
+    }
+
+    .btns {
+      bottom: 45%;
+      width: 100%;
+      position: absolute;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .btns > svg {
+      padding: var(--space-2) 0;
+    }
+
+    .btns > svg:nth-of-type(1) {
+      margin-left: var(--space-8);
+    }
+
+    .btns > svg:nth-of-type(2) {
+      margin-right: var(--space-8);
     }
   }
 
   @media (min-width: 1024px) {
     .content-carousel {
-      width: 65%;
+      width: 900px;
+      margin: var(--space-8) auto var(--space-8) auto;
+      padding: 0 var(--space-7) 0 var(--space-7);
     }
   }
 </style>

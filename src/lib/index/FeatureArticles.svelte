@@ -9,16 +9,18 @@
 <style>
   .feature-articles {
     background-color: var(--grey-1);
-    padding: var(--space-8) 0;
+    padding: var(--space-8) var(--space-4);
   }
 
   h2 {
+    font-size: var(--font-size-5);
+    padding-bottom: var(--space-6);
     color: var(--grey-7);
   }
 
   .articles {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
     grid-auto-flow: row;
     column-gap: var(--space-5);
     row-gap: var(--space-8);
@@ -31,7 +33,7 @@
     padding-bottom: 52.5%;
     overflow: hidden;
     cursor: pointer;
-    margin-bottom: var(--space-2);
+    margin-bottom: var(--space-3);
   }
 
   .cover > img {
@@ -47,6 +49,7 @@
   .article > .title {
     display: block;
     color: var(--grey-7);
+    font-size: var(--font-size-6);
     font-weight: bold;
     transition: color 0.1s linear;
     margin-bottom: var(--space-3);
@@ -71,6 +74,7 @@
 
   .article > .date {
     font-size: var(--font-size-1);
+    font-weight: 400;
     color: var(--grey-5);
     padding-top: var(--space-2);
   }
@@ -100,7 +104,7 @@
   @media (min-width: 1024px) {
     .articles-wrap {
       width: 75vw;
-      max-width: 1440px;
+      max-width: 1200px;
     }
   }
 </style>
