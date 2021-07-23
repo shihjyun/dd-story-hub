@@ -1,4 +1,7 @@
 <script>
+  export let isArticleNav = false
+  export let pageUrl = 'https://ddstoryhub.com'
+
   let showHoverNav = false
 
   function handleClick() {
