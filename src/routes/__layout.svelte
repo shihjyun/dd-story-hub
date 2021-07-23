@@ -1,8 +1,8 @@
 <script context="module">
   export async function load({ page }) {
-    const currentPath = page.path
+    const currentUrl = page.host + page.path
 
-    return { props: { currentPath } }
+    return { props: { currentUrl } }
   }
 </script>
 
@@ -21,31 +21,31 @@
     isOnMount = true
   })
 
-  export let currentPath
+  // detect if user is in article pages
+  export let currentUrl
+  let isInArticlePages = currentUrl.includes('/article')
 </script>
 
 <style>
   /* your styles go here */
 </style>
 
+<!-- device detector  -->
 {#if isOnMount}
   <MobileDetector />
 {/if}
 
-{#if currentPath.includes('/article')}
+<!-- avoid to mount desktop UI when detecting function done -->
+{#if $isMobile != 'detecting'}
   {#if $isMobile}
-    <NavMobile />
+    <NavMobile isArticleNav={isInArticlePages} pageUrl={currentUrl} />
   {:else}
-    <Nav />
+    <Nav isArticleNav={isInArticlePages} pageUrl={currentUrl} />
   {/if}
-{:else if $isMobile}
-  <NavMobile />
-{:else}
-  <Nav />
+
+  <main>
+    <slot />
+  </main>
+
+  <Footer />
 {/if}
-
-<main>
-  <slot />
-</main>
-
-<Footer />
