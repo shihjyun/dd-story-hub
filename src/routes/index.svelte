@@ -25,7 +25,7 @@
 </svelte:head>
 
 <section>
-  <ContentCarousel content={data} />
+  <ContentCarousel content={data.slice(0, 3)} />
 </section>
 <section>
   <FeatureArticles articles={data} />

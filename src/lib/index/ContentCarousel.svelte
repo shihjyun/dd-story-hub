@@ -1,6 +1,7 @@
 <script>
   import { fade } from 'svelte/transition'
   import { timeFormat } from 'd3-time-format'
+  import { isMobile } from '$lib/utils/MobileDetector.js'
 
   export let content
 
@@ -37,7 +38,7 @@
     justify-content: center;
     align-items: flex-start;
     margin: var(--space-4) auto var(--space-4) auto;
-    padding: 0 0 min(105%, 420px) 0;
+    padding: 0 0 min(115%, 450px) 0;
     user-select: none;
     width: 100%;
   }
@@ -116,6 +117,26 @@
     padding: var(--space-2) 0;
   }
 
+  /*  progress dots */
+  .dots {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    bottom: 0;
+  }
+  .dots > span {
+    border-radius: 100%;
+    width: 6px;
+    height: 6px;
+    background-color: var(--grey-2);
+    margin: 0 calc(var(--space-0) / 2);
+    transition: background-color 0.05s ease-in-out;
+  }
+
+  .dots > .currentProgress {
+    background-color: var(--grey-7);
+  }
+
   @media (min-width: 768px) {
     .content-carousel {
       width: 90%;
@@ -165,29 +186,38 @@
 </style>
 
 <div class="content-carousel">
-  <!-- btns -->
-  <div class="btns">
-    <svg
-      on:click={handleClickArrow}
-      data-direction="left"
-      width="100%"
-      height="100%"
-      version="1.1"
-      viewBox="0 0 20 20"
-      x="0px"
-      y="0px"><g><path d="M13.5 14.5L9 10l4.5-4.5L12 4l-6 6 6 6 1.5-1.5z" /></g></svg
-    >
-    <svg
-      on:click={handleClickArrow}
-      data-direction="right"
-      width="100%"
-      height="100%"
-      version="1.1"
-      viewBox="0 0 20 20"
-      x="0px"
-      y="0px"><g><path d="M6.5 5.5L11 10l-4.5 4.5L8 16l6-6-6-6-1.5 1.5z" /></g></svg
-    >
-  </div>
+  {#if $isMobile}
+    <!-- progress dots -->
+    <div class="dots">
+      {#each content as c, i}
+        <span class:currentProgress={i === Math.abs(index % content.length)} />
+      {/each}
+    </div>
+  {:else}
+    <!-- btns -->
+    <div class="btns">
+      <svg
+        on:click={handleClickArrow}
+        data-direction="left"
+        width="100%"
+        height="100%"
+        version="1.1"
+        viewBox="0 0 20 20"
+        x="0px"
+        y="0px"><g><path d="M13.5 14.5L9 10l4.5-4.5L12 4l-6 6 6 6 1.5-1.5z" /></g></svg
+      >
+      <svg
+        on:click={handleClickArrow}
+        data-direction="right"
+        width="100%"
+        height="100%"
+        version="1.1"
+        viewBox="0 0 20 20"
+        x="0px"
+        y="0px"><g><path d="M6.5 5.5L11 10l-4.5 4.5L8 16l6-6-6-6-1.5 1.5z" /></g></svg
+      >
+    </div>
+  {/if}
   <!-- content -->
   {#key currentContent}
     <div in:fade class="content">
