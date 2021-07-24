@@ -17,17 +17,20 @@
   }
 
   // create intersection observer to detect user scroll over the h1 tag
-  if (isArticleNav) {
-    const observer = new IntersectionObserver(function (entry) {
-      if (entry[0].isIntersecting === false) {
+  let observer
+  $: if (isArticleNav) {
+    observer = new IntersectionObserver(function (entry) {
+      // check article h1 exist or not -> when user switch to other pages,
+      // avoid to trigger `showNormalShareIcon = true` again
+      if (entry[0].isIntersecting === false && document.querySelector('.article-meta > h1')) {
         showNormalShareIcon = true
       } else {
         showNormalShareIcon = false
       }
     })
     setTimeout(() => {
-      observer.observe(document.querySelector('h1'))
-    }, 2000)
+      observer.observe(document.querySelector('.article-meta > h1'))
+    }, 500)
   }
 </script>
 

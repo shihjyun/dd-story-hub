@@ -23,7 +23,7 @@
 
   // detect if user is in article pages
   export let currentUrl
-  let isInArticlePages = currentUrl.includes('/article')
+  $: isInArticlePages = currentUrl.includes('/article')
 </script>
 
 <style>
