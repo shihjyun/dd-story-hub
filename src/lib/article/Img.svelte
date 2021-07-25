@@ -1,4 +1,6 @@
 <script>
+  import { isMobile } from '$lib/utils/MobileDetector.js'
+
   export let src
   export let type = 'base'
   export let alt = ''
@@ -18,7 +20,7 @@
     mounted = true
   })
 
-  $: if (mounted && leftImg && rightImg) {
+  $: if (mounted && leftImg && rightImg && !$isMobile) {
     // right side image will load before left side iamge
     rightImg.onload = function () {
       sideBySideWidthRatio = getSideBySideImgOptimalWidth(leftImg, rightImg)
@@ -41,15 +43,16 @@
   }
   /* base */
   figure {
-    padding-bottom: var(--space-5);
-    width: 100%;
+    padding-bottom: var(--space-7);
+    width: 100vw;
+    transform: translateX(calc(-20px));
   }
 
   /* side-by-side */
   .side-by-side > .wrap {
     display: flex;
-    flex-direction: row;
-    gap: 10px;
+    flex-direction: column;
+    gap: var(--space-1);
   }
 
   .wrap > div:nth-of-type(1) {
@@ -59,12 +62,26 @@
   /* note */
   figcaption {
     text-align: center;
-    font-size: var(--font-size-0);
+    font-size: var(--font-size-3);
     padding-top: 10px;
-    color: var(--grey-4);
+    color: var(--grey-5);
   }
 
-  @media (min-width: 576px) {
+  /* base text */
+  .base-text-wrap {
+    margin-top: var(--space-6);
+  }
+  .base-text-wrap > :global(p) {
+    font-size: var(--font-size-3);
+    font-weight: 400;
+    color: var(--grey-7);
+    line-height: var(--line-height-body);
+    padding-bottom: var(--space-4);
+    text-align: justify;
+    padding: 0 var(--space-4);
+  }
+
+  @media (min-width: 768px) {
     figure {
       padding-bottom: var(--space-6);
     }
@@ -77,6 +94,12 @@
 
     figcaption {
       font-size: var(--font-size-1);
+    }
+
+    /* side-by-side */
+    .side-by-side > .wrap {
+      flex-direction: row;
+      gap: 10px;
     }
   }
 
@@ -96,16 +119,26 @@
   }
 </style>
 
-<figure class:side-by-side={type === 'side-by-side'} class:cover={type === 'cover'}>
+<figure
+  class:side-by-side={type === 'side-by-side'}
+  class:cover={type === 'cover'}
+  class:base-text={type === 'base-text'}
+>
   {#if type === 'base'}
     <img {src} {alt} />
   {:else if type === 'cover'}
     <img class="cover" {src} {alt} />
+  {:else if type === 'base-text'}
+    <img class="base-text" {src} {alt} />
   {:else if type === 'side-by-side'}
     <div class="wrap">
       <div><img bind:this={leftImg} src={srcLeft} alt={altLeft} /></div>
       <div><img bind:this={rightImg} src={srcRight} alt={altRight} /></div>
     </div>
   {/if}
-  <figcaption><slot /></figcaption>
+  {#if type === 'base-text'}
+    <figcaption><div class="base-text-wrap"><slot /></div></figcaption>
+  {:else}
+    <figcaption><slot /></figcaption>
+  {/if}
 </figure>

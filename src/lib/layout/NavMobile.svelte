@@ -190,12 +190,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    gap: var(--space-3);
   }
-
-  .share-icon-list > * {
-    margin: 0 var(--space-1);
-  }
-
   .share-list-cancel {
     position: absolute;
     top: var(--space-5);
