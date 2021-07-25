@@ -1,11 +1,10 @@
 <script>
   import { fade } from 'svelte/transition'
-  import { timeFormat } from 'd3-time-format'
+  import { formatDate } from '$lib/utils/utils.js'
   import { isMobile } from '$lib/utils/MobileDetector.js'
 
   export let content
 
-  const format = timeFormat('%b %-d, %Y')
   let index = 0
 
   $: currentContent = content[Math.abs(index % content.length)]
@@ -99,7 +98,7 @@
   }
 
   .content > .title {
-    font-size: var(--font-size-5);
+    font-size: var(--font-size-6);
     color: var(--grey-7);
     font-weight: bold;
     line-height: 1.7;
@@ -226,7 +225,7 @@
       >
       <div class="category">{currentContent.category}</div>
       <a class="title" href={`/article/${currentContent.slug}`} sveltekit:prefetch>{currentContent.title}</a>
-      <div class="date">{format(Date.parse(currentContent.published_date))}</div>
+      <div class="date">{formatDate(Date.parse(currentContent.published_date))}</div>
     </div>
   {/key}
 </div>
