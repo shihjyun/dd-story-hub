@@ -8,15 +8,21 @@
     font-size: var(--font-size-1);
     background-color: var(--grey-2);
     padding: var(--space-2) var(--space-1);
-    margin-bottom: var(--space-4);
+    margin-bottom: var(--space-7);
   }
 
   .box-wrap > :global(p) {
-    padding-bottom: var(--space-4);
+    padding-bottom: var(--space-2);
   }
 
   .box-wrap > :global(p:last-of-type) {
     padding-bottom: 0;
+  }
+
+  @media (min-width: 768px) {
+    .box-wrap {
+      margin-bottom: var(--space-7);
+    }
   }
 </style>
 

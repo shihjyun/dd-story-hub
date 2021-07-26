@@ -38,14 +38,15 @@
 </script>
 
 <style>
-  figcaption > :global(a) {
+  figcaption :global(a) {
     text-decoration: underline;
   }
   /* base */
   figure {
-    padding-bottom: var(--space-7);
     width: 100vw;
-    transform: translateX(calc(-20px));
+    transform: translateX(calc(min(-20px, (530px - 100vw)/2)));
+    margin-top: var(--space-5);
+    padding-bottom: var(--space-7);
   }
 
   /* side-by-side */
@@ -63,37 +64,46 @@
   figcaption {
     text-align: center;
     font-size: var(--font-size-3);
-    padding-top: 10px;
+    padding-top: var(--space-2);
     color: var(--grey-5);
   }
 
   /* base text */
   .base-text-wrap {
-    margin-top: var(--space-6);
+    max-width: 570px;
+    margin: var(--space-4) auto 0 auto;
   }
   .base-text-wrap > :global(p) {
     font-size: var(--font-size-3);
     font-weight: 400;
     color: var(--grey-7);
     line-height: var(--line-height-body);
-    padding-bottom: var(--space-4);
-    text-align: justify;
-    padding: 0 var(--space-4);
+    padding: 0 var(--space-4) var(--space-4) var(--space-4);
+    text-align: left;
+  }
+
+  /* img breakpoint */
+  @media (min-width: 640px) {
+    figure {
+      width: 640px;
+      transform: translateX(calc((530px - 640px) / 2));
+    }
   }
 
   @media (min-width: 768px) {
     figure {
-      padding-bottom: var(--space-6);
+      margin-top: var(--space-6);
+      padding-bottom: var(--space-8);
     }
 
     figure.cover {
       width: 100vw;
-      transform: translateX(calc((576px - 100vw) / 2));
+      transform: translateX(calc((570px - 100vw) / 2));
       padding-bottom: var(--space-8);
     }
 
     figcaption {
-      font-size: var(--font-size-1);
+      font-size: var(--font-size-3);
     }
 
     /* side-by-side */
@@ -101,25 +111,37 @@
       flex-direction: row;
       gap: 10px;
     }
-  }
 
-  /* img breakpoint */
-  @media (min-width: 640px) {
-    figure {
-      width: 640px;
-      transform: translateX(calc((576px - 640px) / 2));
+    /* base text */
+    figure.base-text {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      width: 90vw;
+      transform: translateX(calc((570px - 90vw) / 2));
+    }
+
+    .base-text-wrap > :global(p) {
+      font-size: var(--font-size-4);
     }
   }
 
-  @media (min-width: 800px) {
+  @media (min-width: 966px) {
     figure.side-by-side {
-      width: 800px;
-      transform: translateX(calc((576px - 800px) / 2));
+      width: 966px;
+      transform: translateX(calc((570px - 966px) / 2));
+    }
+
+    figure.base-text {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      width: 966px;
+      transform: translateX(calc((570px - 966px) / 2));
     }
   }
 </style>
 
 <figure
+  class:base={type === 'base'}
   class:side-by-side={type === 'side-by-side'}
   class:cover={type === 'cover'}
   class:base-text={type === 'base-text'}

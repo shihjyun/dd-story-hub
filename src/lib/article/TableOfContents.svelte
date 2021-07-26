@@ -13,6 +13,7 @@
     border-bottom: 2px var(--grey-2) solid;
     padding: var(--space-6) 0 var(--space-3) 0;
   }
+
   .toc > span {
     top: -16px;
     position: absolute;
@@ -33,6 +34,25 @@
 
   .toc > :global(ul > li) {
     margin: 0 var(--space-5) 0 var(--space-7);
+  }
+
+  @media (min-width: 768px) {
+    .toc-wrap {
+      margin: var(--space-2) 0 var(--space-8) 0;
+    }
+
+    .toc {
+      padding: var(--space-7) 0 var(--space-5) 0;
+    }
+
+    .toc > span {
+      font-size: var(--space-4);
+    }
+
+    .toc > :global(ul) {
+      padding-bottom: 0;
+      font-size: var(--font-size-4);
+    }
   }
 </style>
 
