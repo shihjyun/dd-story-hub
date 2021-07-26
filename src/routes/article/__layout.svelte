@@ -28,10 +28,13 @@
 <script>
   import { formatDate } from '$lib/utils/utils.js'
   import ArticleBlock from '$lib/shared/ArticleBlock.svelte'
+  import { isMobile } from '$lib/utils/MobileDetector'
 
   export let article
   export let author
   export let pageUrl
+
+  console.log(article)
 
   // handle copy page url
   let copyTipCount = 1
@@ -348,6 +351,49 @@
       padding-left: 0;
     }
 
+    /* full cover article meta data */
+    .full-cover {
+      position: relative;
+      width: 100vw;
+      height: 52.5vw;
+      margin-top: calc(var(--space-6) * (-1));
+      margin-bottom: var(--space-3);
+      overflow: hidden;
+    }
+
+    .full-cover .cover {
+      position: absolute;
+    }
+
+    .full-cover .dark-bg {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(180deg, rgba(33, 37, 41, 0) 0%, rgba(33, 37, 41, 0.62) 100%);
+    }
+
+    .full-cover .article-meta {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      bottom: var(--space-0);
+    }
+
+    .full-cover .category {
+      display: inline-block;
+      color: var(--grey-0);
+      background-color: var(--green-5);
+      padding: var(--space-0) var(--space-0);
+    }
+
+    .full-cover h1 {
+      color: var(--grey-0);
+    }
+
+    .full-cover .author-date {
+      color: var(--grey-1);
+    }
+
     /* tags */
 
     .tags {
@@ -494,20 +540,43 @@
 </style>
 
 <!-- article metadata -->
-<div class="article-meta">
-  <div class="category">{article.category}</div>
-  <h1>{article.title}</h1>
-  <div class="author-date">
-    By <a sveltekit:prefetch href={`../author/${author.id}`}>{author.name}</a>, {formatDate(
-      Date.parse(article.published_date)
-    )}
+
+{#if article.cover_full && !$isMobile}
+  <!-- full cover -->
+  <div class="full-cover">
+    <figure class="cover">
+      <img src={article.cover_image} alt="cover" />
+    </figure>
+    <div class="dark-bg" />
+
+    <div class="article-meta">
+      <div class="category">{article.category}</div>
+      <h1>{article.title}</h1>
+      <div class="author-date">
+        By <a sveltekit:prefetch href={`../author/${author.id}`}>{author.name}</a>, {formatDate(
+          Date.parse(article.published_date)
+        )}
+      </div>
+    </div>
   </div>
-  <blockquote>{article.description}</blockquote>
-  <figure class="cover">
-    <img src={article.cover_image} alt="cover" />
-    <figcaption>{article.cover_image_description}</figcaption>
-  </figure>
-</div>
+  <div class="article-meta" style="margin-bottom: var(--space-8);"><blockquote>{article.description}</blockquote></div>
+{:else}
+  <!-- general cover -->
+  <div class="article-meta">
+    <div class="category">{article.category}</div>
+    <h1>{article.title}</h1>
+    <div class="author-date">
+      By <a sveltekit:prefetch href={`../author/${author.id}`}>{author.name}</a>, {formatDate(
+        Date.parse(article.published_date)
+      )}
+    </div>
+    <blockquote>{article.description}</blockquote>
+    <figure class="cover">
+      <img src={article.cover_image} alt="cover" />
+      <figcaption>{article.cover_image_description}</figcaption>
+    </figure>
+  </div>
+{/if}
 <!-- main article part -->
 <article>
   <slot />
