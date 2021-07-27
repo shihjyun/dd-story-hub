@@ -43,7 +43,7 @@
   let showSelection = false
 
   // load more setting
-  let limitArticleAmount = 4
+  let limitArticleAmount = $isMobile ? 4 : 9
   $: selectedArticleAmount = selectedArticles.length
   $: showLoadMoreButton = limitArticleAmount < selectedArticleAmount ? true : false
 
@@ -54,7 +54,7 @@
   function handleSelectCategory() {
     showSelection = !showSelection
     // reset limit article amount when category are changed
-    limitArticleAmount = 4
+    limitArticleAmount = $isMobile ? 4 : 9
   }
 
   function loadMore() {
@@ -232,7 +232,7 @@
           <ArticleBlock {cover_image} {category} {slug} {title} {description} {published_date} />
         {/each}
       </div>
-      {#if showLoadMoreButton && $isMobile}
+      {#if showLoadMoreButton}
         <button on:click={loadMore}>載入更多</button>
       {/if}
     {/key}

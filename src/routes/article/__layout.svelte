@@ -356,6 +356,7 @@
       position: relative;
       width: 100vw;
       height: 52.5vw;
+      max-height: calc(100vh - 50px);
       margin-top: calc(var(--space-6) * (-1));
       margin-bottom: var(--space-3);
       overflow: hidden;
