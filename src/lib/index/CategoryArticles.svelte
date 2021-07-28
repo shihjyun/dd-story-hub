@@ -1,6 +1,5 @@
 <script>
   import { fade } from 'svelte/transition'
-  import { categoryPathName } from '$lib/utils/utils.js'
   import ArticleBlock from '$lib/shared/ArticleBlock.svelte'
   import { isMobile } from '$lib/utils/MobileDetector.js'
 

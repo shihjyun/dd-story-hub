@@ -111,7 +111,7 @@
   .tags > span {
     display: inline-block;
     font-size: var(--font-size-2);
-    color: var(--grey-8);
+    color: var(--green-6);
     border: 1px rgba(222, 226, 230, 0.4) solid;
     border-radius: 40px;
     padding: var(--space-1) var(--space-3);
@@ -178,7 +178,13 @@
   }
 
   article :global(p > a) {
-    color: var(--green-5);
+    text-decoration-line: underline;
+    transition: color 0.1s linear;
+  }
+
+  article :global(p > a:hover) {
+    color: var(--green-6);
+    text-decoration-line: underline;
   }
 
   article :global(strong) {
@@ -404,11 +410,7 @@
     }
 
     .tags > span {
-      display: inline-block;
       font-size: var(--font-size-2);
-      color: var(--grey-8);
-      border: 1px rgba(222, 226, 230, 0.4) solid;
-      border-radius: 40px;
       padding: var(--space-1) var(--space-3);
       margin-bottom: var(--space-3);
     }

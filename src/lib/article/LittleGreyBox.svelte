@@ -5,9 +5,9 @@
     width: 100%;
     font-family: 'Roboto Mono', 'Noto Sans TC';
     color: var(--grey-7);
-    font-size: var(--font-size-1);
+    font-size: var(--font-size-3);
     background-color: var(--grey-2);
-    padding: var(--space-2) var(--space-1);
+    padding: var(--space-3) var(--space-3);
     margin-bottom: var(--space-7);
   }
 

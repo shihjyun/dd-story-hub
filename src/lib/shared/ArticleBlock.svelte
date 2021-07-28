@@ -86,7 +86,7 @@
     {#await getArticleMeta()}
       <!-- promise is pending -->
     {:then article}
-      {#if !$isMobile && article.category}
+      {#if !article.category}
         <div class="category">{article.category}</div>
       {/if}
       <a class="cover" href={`/article/${readMoreArticleSlug}`} sveltekit:prefetch
@@ -97,7 +97,7 @@
       <div class="date">{formatDate(Date.parse(article.published_date))}</div>
     {/await}
   {:else}
-    {#if !$isMobile && category}
+    {#if category}
       <div class="category">{category}</div>
     {/if}
     <a class="cover" href={`/article/${slug}`} sveltekit:prefetch><img src={cover_image} alt="" /></a>
