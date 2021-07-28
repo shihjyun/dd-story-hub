@@ -6,14 +6,17 @@ const formatDate = timeFormat('%b %-d, %Y')
 
 const categoryPathName = (category) => {
   switch (category) {
-    case '資料故事':
-      return 'data-story'
+    case '資訊圖表':
+      return 'graphic'
+      break;
+    case '資料分析':
+      return 'data-analysis'
+      break;
+    case '數位敘事':
+      return 'digital-storytelling'
       break;
     case '經驗分享':
-      return 'experience-sharing'
-      break;
-    case '敘事研究':
-      return 'research'
+      return 'experience'
       break;
     default:
       return 'all'
