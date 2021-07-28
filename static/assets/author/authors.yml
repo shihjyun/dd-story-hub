@@ -1,24 +1,47 @@
 - name: Steven Yeo
   id: shihjyun
-  bio: Developer + Journalist + Lover of DataViz
-  mail: shihjyun.yeo@gmail.com
-  avatar: 
+  bio_title: 簡短的介紹
+  bio:  比較長的介紹比較長得介紹比較長的介紹比較長得介紹比較長的介紹
+  avatar: helenecc.jpeg
+  social: 
+    - email: shihjyun.yeo@gmail.com
+    - facebook: wdwdw
+    - twitter: wdwdw
+    - website: https://shihjyunyeo.com/
 
 - name: Helene Chien
   id: helenecc
-  bio: 
-  mail: yihuai0816@gmail.com
+  bio_title: 簡短的介紹
+  bio:  比較長的介紹比較長得介紹比較長的介紹比較長得介紹比較長的介紹
   avatar: helenecc.jpeg
+  social: 
+    - email: yihuai0816@gmail.com
+    - facebook: wdfwdw
+    - twitter: wdwdw
+    - website: www.google.com
+
 
 - name: Dennis Tseng
   id: dennisqq
-  bio: Data Journalist & Data Enthusiast
-  mail: tsengmoneymoney@gmail.com
-  avatar: 
+  bio_title: 簡短的介紹
+  bio:  比較長的介紹比較長得介紹比較長的介紹比較長得介紹比較長的介紹
+  avatar: helenecc.jpeg
+  social: 
+    - email: tsengmoneymoney@gmail.com
+    - facebook: wdwdw
+    - twitter: wdwdw
+    - website: www.google.com
+
 
 - name: Ting-Ni Wu
   id: tingni
-  bio: Data Journalist & Data Enthusiast
-  mail: tingni@gmail.com
-  avatar: 
+  bio_title: 簡短的介紹
+  bio:  比較長的介紹比較長得介紹比較長的介紹比較長得介紹比較長的介紹
+  avatar: helenecc.jpeg
+  social: 
+    - email: tingni@gmail.com
+    - facebook: wdwdw
+    - twitter: wdwdw
+    - website: www.google.com
+
 
