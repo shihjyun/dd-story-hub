@@ -162,8 +162,8 @@
             <path d="M1.05882 0L9 6.22222L16.9412 0L18 0.802519L9 8L0 0.802519L1.05882 0Z" />
           </svg>
         </li>
-        <li><a href="/category/1213121" sveltekit:prefetch>好用工具</a></li>
-        <li><a href="/category/1312121" sveltekit:prefetch>近期活動</a></li>
+        <li><a href="/tools" sveltekit:prefetch>好用工具</a></li>
+        <li><a href="/events" sveltekit:prefetch>近期活動</a></li>
       </ul>
       <div class="social">
         {#if isArticleNav}
@@ -222,10 +222,10 @@
       <div>
         <span style="width: 226px;" />
         <ul>
-          <li><a href="/sdfsdfe" sveltekit:prefetch>資訊圖表</a></li>
-          <li><a href="/sdfsdfe" sveltekit:prefetch>資料分析</a></li>
-          <li><a href="/sdfsdfe" sveltekit:prefetch>數位敘事</a></li>
-          <li><a href="/sdfsdfe" sveltekit:prefetch>經驗分享</a></li>
+          <li><a href="/category/graphic" sveltekit:prefetch on:click={handleClick}>資訊圖表</a></li>
+          <li><a href="/category/data-analysis" sveltekit:prefetch on:click={handleClick}>資料分析</a></li>
+          <li><a href="/category/digital-storytelling" sveltekit:prefetch on:click={handleClick}>數位敘事</a></li>
+          <li><a href="/category/experience" sveltekit:prefetch on:click={handleClick}>經驗分享</a></li>
         </ul>
       </div>
     </div>

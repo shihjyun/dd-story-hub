@@ -299,7 +299,7 @@
       <path d="M14 1.41L12.59 0L7 5.59L1.41 0L0 1.41L5.59 7L0 12.59L1.41 14L7 8.41L12.59 14L14 12.59L8.41 7L14 1.41Z" />
     </svg>
     <ul class="main-items">
-      <li><a href="/about">關於我們</a></li>
+      <li><a href="/about" sveltekit:prefetch on:click={() => (showNav = !showNav)}>關於我們</a></li>
       <li class="sub-items-wrap">
         <div class:highlight={showSubNav} on:click={() => (showSubNav = !showSubNav)}>
           分類文章<svg
@@ -315,14 +315,20 @@
           </svg>
         </div>
         <ul class:show-sub-items={showSubNav} class="sub-items">
-          <li><a href="/about">資訊圖表</a></li>
-          <li><a href="/about">資料分析</a></li>
-          <li><a href="/about">數位敘事</a></li>
-          <li><a href="/about">經驗分享</a></li>
+          <li><a href="/category/graphic" sveltekit:prefetch on:click={() => (showNav = !showNav)}>資訊圖表</a></li>
+          <li>
+            <a href="/category/data-analysis" sveltekit:prefetch on:click={() => (showNav = !showNav)}>資料分析</a>
+          </li>
+          <li>
+            <a href="/category/digital-storytelling" sveltekit:prefetch on:click={() => (showNav = !showNav)}
+              >數位敘事</a
+            >
+          </li>
+          <li><a href="/category/experience" sveltekit:prefetch on:click={() => (showNav = !showNav)}>經驗分享</a></li>
         </ul>
       </li>
-      <li><a href="/232323">好用工具</a></li>
-      <li><a href="/abo232323ut">近期活動</a></li>
+      <li><a href="/tools" sveltekit:prefetch on:click={() => (showNav = !showNav)}>好用工具</a></li>
+      <li><a href="/events" sveltekit:prefetch on:click={() => (showNav = !showNav)}>近期活動</a></li>
     </ul>
     <!-- social -->
     <div class="social">
