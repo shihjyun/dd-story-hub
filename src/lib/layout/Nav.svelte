@@ -154,7 +154,7 @@
 <nav>
   <div class="nav-wrap">
     <div class="nav-main-items">
-      <a class="logo" href="/" sveltekit:prefetch><img src="/assets/index/DDSH-logo.png" alt="DD-logo" /></a>
+      <a class="logo" href="/" sveltekit:prefetch><img src="/assets/index/DDSH-logo.svg" alt="DD-logo" /></a>
       <ul>
         <li><a href="/about" sveltekit:prefetch>關於我們</a></li>
         <li class:selected={showHoverNav} on:click={handleClick}>
