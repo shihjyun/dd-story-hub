@@ -1,5 +1,5 @@
 <script>
-  // your script goes here
+  let email
 </script>
 
 <style>
@@ -19,7 +19,7 @@
     padding-bottom: var(--space-4);
   }
 
-  .input-wrap {
+  form {
     display: grid;
     width: 100%;
     grid-template-columns: 1fr;
@@ -27,7 +27,6 @@
 
   .mail-input {
     font-size: var(--font-size-4);
-    font-family: Roboto;
     height: 46px;
     outline: 0;
     padding: var(--space-1) var(--space-3);
@@ -37,21 +36,23 @@
     border-color: none;
   }
 
-  button {
+  input[type='submit'] {
     font-size: var(--font-size-5);
     background-color: var(--grey-1);
-    color: var(--grey-7);
+    color: var(--green-6);
     font-family: Roboto;
     transition: color 0.15s linear;
     padding: var(--space-1) 0;
+    cursor: pointer;
   }
 
-  button:focus {
+  input[type='submit']:focus {
     outline: 0;
   }
 
-  button:hover {
-    background-color: var(--grey-2);
+  input:disabled {
+    color: var(--grey-4);
+    cursor: no-drop;
   }
 
   @media (min-width: 768px) {
@@ -66,7 +67,7 @@
       padding-bottom: 0;
     }
 
-    .input-wrap {
+    form {
       width: 45%;
       grid-template-columns: 0.82fr 0.18fr;
       margin-left: var(--space-5);
@@ -76,7 +77,7 @@
       padding: var(--space-1);
     }
 
-    button {
+    input[type='submit'] {
       padding: 0;
     }
   }
@@ -87,18 +88,22 @@
 
 <div class="news-sub">
   <span>訂閱我們最新的故事吧！</span>
-  <div class="input-wrap">
+  <form
+    action="https://buttondown.email/api/emails/embed-subscribe/ddstoryhub"
+    method="post"
+    target="popupwindow"
+    onsubmit="window.open('https://buttondown.email/ddstoryhub', 'popupwindow')"
+    class="embeddable-buttondown-form"
+  >
     <input
       class="mail-input"
-      aria-label="email"
-      aria-required="true"
       type="email"
-      data-inputmask=""
-      name="fields[email]"
+      name="email"
       placeholder="ddstoryhub@mail.com"
-      autocomplete="email"
-      aria-invalid="false"
+      aria-label="email address"
+      bind:value={email}
     />
-    <button>送出</button>
-  </div>
+    <input type="submit" value="送出" disabled={!email} />
+    <input type="hidden" value="1" name="embed" />
+  </form>
 </div>
