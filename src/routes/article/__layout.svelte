@@ -9,6 +9,7 @@
       .then((d) => d[0])
     // get current page url
     const pageUrl = page.host + page.path
+
     if (!article || !author) {
       return {
         status: 400,
@@ -20,6 +21,7 @@
         article,
         author,
         pageUrl,
+        articlePath: page.path,
       },
     }
   }
@@ -29,12 +31,19 @@
   import { formatDate } from '$lib/utils/utils.js'
   import ArticleBlock from '$lib/shared/ArticleBlock.svelte'
   import { isMobile } from '$lib/utils/MobileDetector'
+  import { setContext } from 'svelte'
 
   export let article
   export let author
   export let pageUrl
+  export let articlePath
 
   console.log(article)
+
+  // let child components can access page prametes by setting setting context
+  setContext('article-path', {
+    path: articlePath,
+  })
 
   // handle copy page url
   let copyTipCount = 1
