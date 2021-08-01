@@ -27,7 +27,7 @@
   <meta name="author" content="ddstoryhub.com" />
   <meta property="og:title" content="DD Story Hub 融數基地" />
   <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://www.dd-story-hub.com" />
+  <meta property="og:url" content="https://www.ddstoryhub.com" />
   <meta property="og:image" content="https://www.ddstoryhub.com/assets/index/DD-avatar-text-en.png" />
   <meta property="og:site_name" content="DD Story Hub 融數基地" />
   <meta
