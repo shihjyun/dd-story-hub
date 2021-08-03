@@ -552,6 +552,32 @@
 </style>
 
 <!-- article metadata -->
+<!-- weird meta closed slash auto add when autusave ... -->
+<svelte:head>
+  <title>{article.title} - DD Story Hub 融數基地</title>
+  <link rel="canonical" href={pageUrl} />
+  <meta name="description" content={article.description + article.meta_tags} />
+  <meta name="author" content="ddstoryhub.com" />
+  <meta property="og:title" content="{article.title} - DD Story Hub 融數基地" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content={pageUrl} />
+  <meta property="og:image" content="https://www.ddstoryhub.com/assets/index/DD-avatar-text-en.png" />
+  <meta property="og:site_name" content="DD Story Hub 融數基地" />
+  <meta property="og:description" content={article.description} />
+  <meta property="twitter:card" content="summary_large_image" />
+  <meta property="twitter:domain" content="Social" />
+  <meta name="twitter:title" content="{article.title} - DD Story Hub 融數基地" />
+  <meta property="twitter:description" content={article.description} />
+  <meta name="twitter:image" content={article.cover_image} />
+  <meta property="article:section" content={article.category} />
+  {#each article.meta_tags.split(',') as tag}
+    <meta property="article:tag" content={tag} />
+  {/each}
+  <meta property="article:published_time" content={article.published_date} />
+  <meta property="article:modified_time" content={article.updated_date} />
+  <meta name="pubdate" content={article.published_date} />
+  <meta name="lastmod" content={article.updated_date} />
+</svelte:head>
 
 {#if article.cover_full && !$isMobile}
   <!-- full cover -->

@@ -53,7 +53,7 @@
   function handleSelectCategory() {
     showSelection = !showSelection
     // reset limit article amount when category are changed
-    limitArticleAmount = $isMobile ? 4 : 9
+    limitArticleAmount = $isMobile ? 4 : 6
   }
 
   function loadMore() {
@@ -167,8 +167,8 @@
     }
 
     .articles-wrap {
-      width: 85vw;
       margin: 0 auto;
+      width: 85vw;
     }
 
     .articles {

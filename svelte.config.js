@@ -5,11 +5,7 @@ import { mdsvex } from 'mdsvex';
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
-	kit: {
-		adapter: vercel(),
-		target: '#svelte'
-	},
-
+	extensions: ['.svelte', '.svelte.md', '.md', '.svx'],
 	// options passed to svelte.preprocess (https://svelte.dev/docs#svelte_preprocess)
 	preprocess: [
 		mdsvex({extensions: ['.svelte.md', '.md', '.svx']}),
@@ -19,8 +15,11 @@ const config = {
 				}
 		})
 	],
-
-	extensions: ['.svelte', '.svelte.md', '.md', '.svx']
+	kit: {
+		adapter: vercel(),
+		target: '#svelte',
+		ssr: true,
+	},
 };
 
 export default config;

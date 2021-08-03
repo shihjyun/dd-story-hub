@@ -8,6 +8,7 @@
     if (res.ok) {
       return {
         props: {
+          authorSlug: page.params.slug,
           article: await res.json(),
           author: await author.filter((d) => d.id === page.params.slug)[0],
         },
@@ -24,18 +25,18 @@
 <script>
   import { fade } from 'svelte/transition'
   import ArticleBlock from '$lib/shared/ArticleBlock.svelte'
-  import { categoryPathName } from '$lib/utils/utils'
+  import { isMobile } from '$lib/utils/MobileDetector.js'
 
-  export let article, author
+  export let article, author, authorSlug
   console.log(author)
 
   $: selectedArticleAmount = article.length
-  let limitArticleAmount = 5
+  let limitArticleAmount = $isMobile ? 4 : 9
   $: showLoadMoreButton = limitArticleAmount < selectedArticleAmount ? true : false
 
   function loadMore() {
     if (limitArticleAmount < selectedArticleAmount) {
-      limitArticleAmount += 4
+      limitArticleAmount += $isMobile ? 4 : 9
     }
   }
 
@@ -83,7 +84,7 @@
   }
 
   h1 {
-    font-family: Roboto;
+    font-family: Roboto 'Noto Sans TC';
     font-size: var(--font-size-3);
     font-weight: 700;
     line-height: var(--line-height-body);
@@ -109,7 +110,83 @@
   .social-icon:nth-of-type(3) {
     width: 21px;
   }
+
+  button {
+    display: block;
+    margin: var(--space-9) auto 0 auto;
+    font-size: var(--font-size-2);
+    color: var(--grey-0);
+    background-color: var(--green-5);
+    padding: var(--space-1) var(--space-7);
+  }
+
+  button:focus {
+    outline: 0;
+  }
+
+  @media (min-width: 768px) {
+    .author {
+      margin: var(--space-8) 0 var(--space-8) 0;
+      padding-bottom: var(--space-8);
+    }
+
+    .author-avatar {
+      width: 120px;
+      height: 120px;
+    }
+
+    h1 {
+      font-size: var(--font-size-6);
+    }
+
+    .author > p {
+      max-width: 372px;
+    }
+
+    .articles {
+      grid-template-columns: 1fr 1fr 1fr;
+    }
+
+    .container {
+      padding: 0 0 var(--space-8) 0;
+      width: 85vw;
+      margin: 0 auto;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .container {
+      width: 75vw;
+    }
+  }
 </style>
+
+<svelte:head>
+  <title>{author.name} - DD Story Hub 融數基地</title>
+  <link rel="canonical" href="https://www.ddstoryhub.com/author/{authorSlug}" />
+  <meta
+    name="description"
+    content="DD Story Hub 融數基地是因為喜歡研究數位敘事及資料新聞，而聚集在一起的夥伴，期待能夠透過不同的敘事方式，放大故事影響力。"
+  />
+  <meta name="author" content="ddstoryhub.com" />
+  <meta property="og:title" content="{author.name} - DD Story Hub 融數基地" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.ddstoryhub.com/category/{authorSlug}" />
+  <meta property="og:image" content="https://www.ddstoryhub.com/assets/index/DD-avatar-text-en.png" />
+  <meta property="og:site_name" content="DD Story Hub 融數基地" />
+  <meta
+    property="og:description"
+    content="DD Story Hub 融數基地是因為喜歡研究數位敘事及資料新聞，而聚集在一起的夥伴，期待能夠透過不同的敘事方式，放大故事影響力。"
+  />
+  <meta property="twitter:card" content="summary_large_image" />
+  <meta property="twitter:domain" content="Social" />
+  <meta name="twitter:title" content="{author.name} - DD Story Hub 融數基地" />
+  <meta
+    property="twitter:description"
+    content="DD Story Hub 融數基地是因為喜歡研究數位敘事及資料新聞，而聚集在一起的夥伴，期待能夠透過不同的敘事方式，放大故事影響力。"
+  />
+  <meta name="twitter:image" content="https://www.ddstoryhub.com/assets/index/DD-avatar-text-en.png" />
+</svelte:head>
 
 <div class="container">
   <div class="author">

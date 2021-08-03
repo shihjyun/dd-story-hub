@@ -36,16 +36,14 @@
 {/if}
 
 <!-- avoid to mount desktop UI when detecting function done -->
-{#if $isMobile != 'detecting'}
-  {#if $isMobile}
-    <NavMobile isArticleNav={isInArticlePages} pageUrl={currentUrl} />
-  {:else}
-    <Nav isArticleNav={isInArticlePages} pageUrl={currentUrl} />
-  {/if}
-
-  <main>
-    <slot />
-  </main>
-
-  <Footer />
+{#if $isMobile}
+  <NavMobile isArticleNav={isInArticlePages} pageUrl={currentUrl} />
+{:else}
+  <Nav isArticleNav={isInArticlePages} pageUrl={currentUrl} />
 {/if}
+
+<main>
+  <slot />
+</main>
+
+<Footer />
