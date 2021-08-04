@@ -1,6 +1,5 @@
 <script>
-  import { formatDate } from '$lib/utils/utils.js'
-  import { isMobile } from '$lib/utils/MobileDetector.js'
+  import { formatDate, categoryPathName } from '$lib/utils/utils.js'
 
   // for normal article block
   export let category, slug, cover_image, title, description, published_date
@@ -30,6 +29,7 @@
   }
 
   .article > .category {
+    display: inline-block;
     font-size: var(--font-size-1);
     color: var(--green-5);
     padding: var(--space-2) 0;
@@ -40,13 +40,8 @@
     color: var(--grey-7);
     font-size: var(--font-size-6);
     font-weight: 600;
-    transition: color 0.1s linear;
     margin-bottom: var(--space-3);
     line-height: var(--line-height-heading);
-  }
-
-  .article > .title:hover {
-    color: var(--grey-5);
   }
 
   .article > .description {
@@ -86,11 +81,11 @@
     {#await getArticleMeta()}
       <!-- promise is pending -->
     {:then article}
-      {#if !article.category}
-        <div class="category">{article.category}</div>
-      {/if}
+      <a class="category" sveltekit:prefetch href={`/category/${categoryPathName(article.category)}`}
+        >{article.category}</a
+      >
       <a class="cover" href={`/article/${readMoreArticleSlug}`} sveltekit:prefetch
-        ><img src={article.cover_image} alt="" /></a
+        ><img src={article.cover_image} alt="cover" /></a
       >
       <a class="title" href={`/article/${readMoreArticleSlug}`} sveltekit:prefetch>{article.title}</a>
       <div class="description">{article.description}</div>
@@ -98,9 +93,9 @@
     {/await}
   {:else}
     {#if category}
-      <div class="category">{category}</div>
+      <a class="category" sveltekit:prefetch href={`/category/${categoryPathName(category)}`}>{category}</a>
     {/if}
-    <a class="cover" href={`/article/${slug}`} sveltekit:prefetch><img src={cover_image} alt="" /></a>
+    <a class="cover" href={`/article/${slug}`} sveltekit:prefetch><img src={cover_image} alt="cover" /></a>
     <a class="title" href={`/article/${slug}`} sveltekit:prefetch>{title}</a>
     <div class="description">{description}</div>
     <div class="date">{formatDate(Date.parse(published_date))}</div>

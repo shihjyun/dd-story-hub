@@ -27,7 +27,7 @@
   <meta property="og:title" content="DD Story Hub 融數基地">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://www.ddstoryhub.com">
-  <meta property="og:image" content="https://www.ddstoryhub.com/assets/index/DD-avatar-text-en.png">
+  <meta property="og:image" content="https://www.ddstoryhub.com/assets/index/DD-og-image.png">
   <meta property="og:site_name" content="DD Story Hub 融數基地">
   <meta
     property="og:description"
@@ -38,7 +38,7 @@
   <meta
     property="twitter:description"
     content="DD Story Hub 融數基地是因為喜歡研究數位敘事及資料新聞，而聚集在一起的夥伴，期待能夠透過不同的敘事方式，放大故事影響力。">
-  <meta name="twitter:image" content="https://www.ddstoryhub.com/assets/index/DD-avatar-text-en.png">
+  <meta name="twitter:image" content="https://www.ddstoryhub.com/assets/index/DD-og-image.png">
 </svelte:head>
 
 <section>

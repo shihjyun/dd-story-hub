@@ -1,6 +1,6 @@
 <script>
   import { fade } from 'svelte/transition'
-  import { formatDate } from '$lib/utils/utils.js'
+  import { formatDate, categoryPathName } from '$lib/utils/utils.js'
   import { isMobile } from '$lib/utils/MobileDetector.js'
 
   export let content
@@ -95,6 +95,7 @@
     font-size: var(--font-size-1);
     color: var(--green-5);
     padding: var(--space-2) 0;
+    cursor: pointer;
   }
 
   .content > .title {
@@ -103,11 +104,6 @@
     font-weight: bold;
     line-height: 1.7;
     text-align: center;
-    transition: color 0.1s linear;
-  }
-
-  .content > .title:hover {
-    color: var(--grey-5);
   }
 
   .content > .date {
@@ -223,7 +219,9 @@
       <a class="cover" href={`/article/${currentContent.slug}`} sveltekit:prefetch
         ><img src={currentContent.cover_image} alt="" /></a
       >
-      <div class="category">{currentContent.category}</div>
+      <a class="category" sveltekit:prefetch href={`/category/${categoryPathName(currentContent.category)}`}
+        >{currentContent.category}</a
+      >
       <a class="title" href={`/article/${currentContent.slug}`} sveltekit:prefetch>{currentContent.title}</a>
       <div class="date">{formatDate(Date.parse(currentContent.published_date))}</div>
     </div>

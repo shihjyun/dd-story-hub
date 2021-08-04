@@ -93,7 +93,7 @@
   }
 
   .main-items {
-    margin: var(--space-4) 0 var(--space-9) var(--space-4);
+    margin: var(--space-4) 0 var(--space-11) var(--space-4);
   }
 
   .main-items > li {
@@ -300,6 +300,7 @@
       <path d="M14 1.41L12.59 0L7 5.59L1.41 0L0 1.41L5.59 7L0 12.59L1.41 14L7 8.41L12.59 14L14 12.59L8.41 7L14 1.41Z" />
     </svg>
     <ul class="main-items">
+      <li><a href="/" sveltekit:prefetch on:click={() => (showNav = !showNav)}>回首頁</a></li>
       <li><a href="/about" sveltekit:prefetch on:click={() => (showNav = !showNav)}>關於我們</a></li>
       <li class="sub-items-wrap">
         <div class:highlight={showSubNav} on:click={() => (showSubNav = !showSubNav)}>
@@ -333,13 +334,8 @@
     </ul>
     <!-- social -->
     <div class="social">
-      <a href="https://medium.com/dd-story-hub" target="_blank"
-        ><svg
-          class="nav-icon"
-          viewBox="0 0 256 256"
-          xmlns:xlink="http://www.w3.org/1999/xlink"
-          preserveAspectRatio="xMidYMid"
-        >
+      <a class="nav-icon" href="https://medium.com/dd-story-hub" target="_blank"
+        ><svg viewBox="0 0 256 256" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMidYMid">
           <g>
             <rect x="0" y="0" width="256" height="256" />
             <path
@@ -349,8 +345,8 @@
           </g>
         </svg>
       </a>
-      <a href="https://www.facebook.com/ddstoryhub" target="_blank"
-        ><svg class="nav-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 167.657 167.657">
+      <a class="nav-icon" href="https://www.facebook.com/ddstoryhub" target="_blank"
+        ><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 167.657 167.657">
           <g>
             <path
               d="M83.829,0.349C37.532,0.349,0,37.881,0,84.178c0,41.523,30.222,75.911,69.848,82.57v-65.081H49.626

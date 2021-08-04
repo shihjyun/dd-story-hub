@@ -24,32 +24,22 @@
     color: var(--grey-7);
   }
 
-  .social-icon {
+  .social-icons {
     display: flex;
     align-items: center;
   }
 
-  .social-icon > a:nth-of-type(2) {
+  .social-icons > a:nth-of-type(2) {
     margin: 0 var(--space-1);
   }
 
   li {
     color: var(--grey-5);
-    transition: color 0.15s linear;
   }
 
-  li:hover {
-    color: var(--grey-4);
-  }
-
-  svg {
+  .social-icon {
     fill: var(--grey-5);
     width: 18px;
-    transition: color 0.15s linear;
-  }
-
-  svg:hover {
-    fill: var(--grey-4);
   }
 
   .logo > img {
@@ -141,16 +131,16 @@
       <div class="category">
         <div class="title">分類文章</div>
         <ul>
-          <li><a href="/1212">小分類一</a></li>
-          <li><a href="/1212">小分類二</a></li>
-          <li><a href="/1212">小分類三</a></li>
-          <li><a href="/1212">小分類四</a></li>
+          <li><a href="/category/graphic" sveltekit:prefetch>資訊圖表</a></li>
+          <li><a href="/category/data-analysis" sveltekit:prefetch>資料分析</a></li>
+          <li><a href="/category/digital-storytelling" sveltekit:prefetch>數位敘事</a></li>
+          <li><a href="/category/experience" sveltekit:prefetch>經驗分享</a></li>
         </ul>
       </div>
       <div class="about">
         <div class="title">關於我們</div>
-        <div class="social-icon">
-          <a href="https://medium.com/dd-story-hub" target="_blank"
+        <div class="social-icons">
+          <a class="social-icon" href="https://medium.com/dd-story-hub" target="_blank"
             ><svg viewBox="0 0 256 256" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMidYMid">
               <g>
                 <rect x="0" y="0" width="256" height="256" />
@@ -161,7 +151,7 @@
               </g>
             </svg>
           </a>
-          <a href="https://www.facebook.com/ddstoryhub" target="_blank"
+          <a class="social-icon" href="https://www.facebook.com/ddstoryhub" target="_blank"
             ><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 167.657 167.657">
               <g>
                 <path
@@ -173,7 +163,7 @@
               </g>
             </svg></a
           >
-          <a href="ddemail@mail.com">
+          <a class="social-icon" href="ddemail@mail.com">
             <svg viewBox="0 0 20 16" xmlns="http://www.w3.org/2000/svg">
               <path
                 d="M17.3333 0.666748H2.66666C1.65833 0.666748 0.842495 1.49175 0.842495 2.50008L0.833328 13.5001C0.833328 14.5084 1.65833 15.3334 2.66666 15.3334H17.3333C18.3417 15.3334 19.1667 14.5084 19.1667 13.5001V2.50008C19.1667 1.49175 18.3417 0.666748 17.3333 0.666748ZM17.3333 13.5001H2.66666V4.33341L10 8.91675L17.3333 4.33341V13.5001ZM10 7.08341L2.66666 2.50008H17.3333L10 7.08341Z"
