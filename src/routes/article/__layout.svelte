@@ -28,7 +28,7 @@
 </script>
 
 <script>
-  import { formatDate } from '$lib/utils/utils.js'
+  import { formatDate, categoryPathName } from '$lib/utils/utils.js'
   import ArticleBlock from '$lib/shared/ArticleBlock.svelte'
   import { isMobile } from '$lib/utils/MobileDetector'
   import { setContext } from 'svelte'
@@ -343,6 +343,7 @@
     }
 
     .article-meta > .category {
+      display: inline-block;
       margin-bottom: var(--space-3);
     }
 
@@ -592,7 +593,9 @@
     <div class="dark-bg" />
 
     <div class="article-meta">
-      <div class="category">{article.category}</div>
+      <a class="category" sveltekit:prefetch href={`/category/${categoryPathName(article.category)}`}
+        >{article.category}</a
+      >
       <h1>{article.title}</h1>
       <div class="author-date">
         By <a sveltekit:prefetch href={`../author/${author.id}`}>{author.name}</a>, {formatDate(
@@ -605,7 +608,9 @@
 {:else}
   <!-- general cover -->
   <div class="article-meta">
-    <div class="category">{article.category}</div>
+    <a class="category" sveltekit:prefetch href={`/category/${categoryPathName(article.category)}`}
+      >{article.category}</a
+    >
     <h1>{article.title}</h1>
     <div class="author-date">
       By <a sveltekit:prefetch href={`../author/${author.id}`}>{author.name}</a>, {formatDate(

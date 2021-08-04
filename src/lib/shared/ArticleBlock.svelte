@@ -28,6 +28,23 @@
     position: absolute;
   }
 
+  .cover:after {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    content: '';
+    background-color: var(--grey-0);
+    opacity: 0;
+    transition: all 0.2s ease-in-out;
+  }
+
+  .cover:hover:after {
+    opacity: 0.4;
+  }
+
   .article > .category {
     display: inline-block;
     font-size: var(--font-size-1);

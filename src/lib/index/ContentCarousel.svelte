@@ -42,15 +42,13 @@
     width: 100%;
   }
 
-  /*     padding: 0 var(--space-4) 0 var(--space-4); */
-
   .btns {
     bottom: min(10%, 10px);
     width: 100%;
     position: absolute;
     display: flex;
     justify-content: space-between;
-    z-index: 2;
+    z-index: 0;
   }
 
   .btns > svg {
@@ -89,6 +87,23 @@
 
   .cover > img {
     position: absolute;
+  }
+
+  .cover:after {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    content: '';
+    background-color: var(--grey-0);
+    opacity: 0;
+    transition: all 0.2s ease-in-out;
+  }
+
+  .cover:hover:after {
+    opacity: 0.4;
   }
 
   .content > .category {

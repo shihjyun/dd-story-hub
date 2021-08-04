@@ -164,8 +164,8 @@
             <path d="M1.05882 0L9 6.22222L16.9412 0L18 0.802519L9 8L0 0.802519L1.05882 0Z" />
           </svg>
         </li>
-        <li><a href="/tools" sveltekit:prefetch>好用工具</a></li>
-        <li><a href="/events" sveltekit:prefetch>近期活動</a></li>
+        <!-- <li><a href="/tools" sveltekit:prefetch>好用工具</a></li>
+        <li><a href="/events" sveltekit:prefetch>近期活動</a></li> -->
       </ul>
       <div class="social">
         {#if isArticleNav}

@@ -329,8 +329,8 @@
           <li><a href="/category/experience" sveltekit:prefetch on:click={() => (showNav = !showNav)}>經驗分享</a></li>
         </ul>
       </li>
-      <li><a href="/tools" sveltekit:prefetch on:click={() => (showNav = !showNav)}>好用工具</a></li>
-      <li><a href="/events" sveltekit:prefetch on:click={() => (showNav = !showNav)}>近期活動</a></li>
+      <!-- <li><a href="/tools" sveltekit:prefetch on:click={() => (showNav = !showNav)}>好用工具</a></li>
+      <li><a href="/events" sveltekit:prefetch on:click={() => (showNav = !showNav)}>近期活動</a></li> -->
     </ul>
     <!-- social -->
     <div class="social">

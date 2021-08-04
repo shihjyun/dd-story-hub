@@ -38,6 +38,9 @@
 </script>
 
 <style>
+  img {
+    width: 100%;
+  }
   figcaption :global(a) {
     text-decoration: underline;
   }
