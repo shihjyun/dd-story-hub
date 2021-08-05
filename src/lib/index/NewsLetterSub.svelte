@@ -26,10 +26,12 @@
   }
 
   .mail-input {
+    width: 100%;
     font-size: var(--font-size-4);
     height: 46px;
     outline: 0;
     padding: var(--space-1) var(--space-3);
+    border-radius: 0;
   }
 
   .mail-input:focus {

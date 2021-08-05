@@ -15,7 +15,6 @@
 
   onMount(async () => {
     bookmark = await getBookmarkData()
-    console.log(bookmark)
   })
 </script>
 

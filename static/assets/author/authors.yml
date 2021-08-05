@@ -1,13 +1,12 @@
-- name: Steven Yeo
-  id: shihjyun
-  bio_title: Lover of DataViz
-  bio: 目前在媒體業做數位敘事/資料視覺化相關的東東，對資料與圖表創造出的無限可能性深深著迷。
-  avatar: shihjyun.jpeg
+- name: Dennis Tseng
+  id: dennisqq
+  bio_title: data analyst / data journalist
+  bio:  現在是新聞所學生也是資料分析師，對商業分析、統計、資料視覺化、資料新聞都很有興趣，喜歡寫 R！
+  avatar: dennisqq.png
   social: 
-    - email: shihjyun.yeo@gmail.com
-    - facebook: 
-    - twitter: https://twitter.com/shihjyunyeo
-    - website: https://shihjyunyeo.com/
+    - linkedin: https://www.linkedin.com/in/tzu-hsuan-tseng/
+    - medium: https://medium.com/@tsengmoneymoney
+    - website: https://dennisrdatanews.netlify.app/
 
 - name: Helene Chien
   id: helenecc
@@ -18,32 +17,36 @@
     - email: yihuai0816@gmail.com
     - facebook: https://www.facebook.com/helenechien
     - medium: https://medium.com/@yihuai0816
-    - website: 
 
-- name: Dennis Tseng
-  id: dennisqq
-  bio_title: data analyst / data journalist
-  bio:  現在是新聞所學生也是資料分析師，對商業分析、統計、資料視覺化、資料新聞都很有興趣，喜歡寫 R！
-  avatar: dennisqq.png
+- name: Kewin Teo
+  id: kerwinteo
+  bio_title: Journalist / interested in data-driven journalism
+  bio: 讀社會學，誤打誤撞成為記者。喜歡把事情表達清楚，覺得能夠做新聞，幸運又幸福。
+  avatar: kerwinteo.png
   social: 
-    - email: 
-    - facebook: 
-    - twitter: 
-    - linkedin: https://www.linkedin.com/in/tzu-hsuan-tseng/
-    - medium: https://medium.com/@tsengmoneymoney
-    - website: https://dennisrdatanews.netlify.app/
+    - email: teokerwin515@gmail.com
+    - facebook: https://www.facebook.com/kerwin.teo/
 
-
+- name: Steven Yeo
+  id: shihjyun
+  bio_title: 批著記者皮的圖表工程師
+  bio: 目前在媒體業做數位敘事/資料視覺化相關的東東，對資料與圖表創造出的無限可能性深深著迷。
+  avatar: shihjyun.jpeg
+  social: 
+    - email: shihjyun.yeo@gmail.com
+    - twitter: https://twitter.com/shihjyunyeo
+    - website: https://shihjyunyeo.com/
 
 - name: Ting-Ni Wu
   id: tingni
-  bio_title: 簡短的介紹
-  bio:  比較長的介紹比較長得介紹比較長的介紹比較長得介紹比較長的介紹
-  avatar: helenecc.jpeg
+  bio_title: Project Management, Python, Data, Storytelling
+  bio: 曾在新聞團隊打雜工，對產品企劃、專案管理與資料敘事有興趣，仍持續探索學習中。慣用Python。
+  avatar: tingni.png
   social: 
-    - email: tingni@gmail.com
-    - facebook: wdwdw
-    - twitter: wdwdw
-    - website: www.google.com
+    - email: hihidia2175@gmail.com
+    - twitter: https://twitter.com/got_tyyni33
+    - medium: https://medium.com/@got_tyyni33
+
+
 
 

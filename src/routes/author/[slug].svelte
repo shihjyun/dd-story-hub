@@ -28,7 +28,6 @@
   import { isMobile } from '$lib/utils/MobileDetector.js'
 
   export let article, author, authorSlug
-  console.log(author)
 
   $: selectedArticleAmount = article.length
   let limitArticleAmount = $isMobile ? 4 : 9
@@ -39,8 +38,6 @@
       limitArticleAmount += $isMobile ? 4 : 9
     }
   }
-
-  console.log(article)
 </script>
 
 <style>
