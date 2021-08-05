@@ -3,14 +3,6 @@
 
   // for normal article block
   export let category, slug, cover_image, title, description, published_date
-  // for read-more article block
-  export let readMoreArticleSlug
-
-  async function getArticleMeta() {
-    const res = await fetch(`/article/${readMoreArticleSlug}.json`)
-    const articleMeta = await res.json()
-    return articleMeta
-  }
 </script>
 
 <style>
@@ -94,27 +86,11 @@
 </style>
 
 <div class="article">
-  {#if readMoreArticleSlug}
-    {#await getArticleMeta()}
-      <!-- promise is pending -->
-    {:then article}
-      <a class="category" sveltekit:prefetch href={`/category/${categoryPathName(article.category)}`}
-        >{article.category}</a
-      >
-      <a class="cover" href={`/article/${readMoreArticleSlug}`} sveltekit:prefetch
-        ><img src={article.cover_image} alt="cover" /></a
-      >
-      <a class="title" href={`/article/${readMoreArticleSlug}`} sveltekit:prefetch>{article.title}</a>
-      <div class="description">{article.description}</div>
-      <div class="date">{formatDate(Date.parse(article.published_date))}</div>
-    {/await}
-  {:else}
-    {#if category}
-      <a class="category" sveltekit:prefetch href={`/category/${categoryPathName(category)}`}>{category}</a>
-    {/if}
-    <a class="cover" href={`/article/${slug}`} sveltekit:prefetch><img src={cover_image} alt="cover" /></a>
-    <a class="title" href={`/article/${slug}`} sveltekit:prefetch>{title}</a>
-    <div class="description">{description}</div>
-    <div class="date">{formatDate(Date.parse(published_date))}</div>
+  {#if category}
+    <a class="category" sveltekit:prefetch href={`/category/${categoryPathName(category)}`}>{category}</a>
   {/if}
+  <a class="cover" href={`/article/${slug}`} sveltekit:prefetch><img src={cover_image} alt="cover" /></a>
+  <a class="title" href={`/article/${slug}`} sveltekit:prefetch>{title}</a>
+  <div class="description">{description}</div>
+  <div class="date">{formatDate(Date.parse(published_date))}</div>
 </div>

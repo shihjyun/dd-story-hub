@@ -1,7 +1,10 @@
 <script context="module">
   export async function load({ page, fetch }) {
+    const pageSlug = page.path.replace('/article/', '')
+    // get all articles meta
+    const articles = await fetch('/article.json').then((res) => res.json())
     // get article meta
-    const article = await fetch(`${page.path}.json`).then((res) => res.json())
+    const article = await articles.filter((d) => d.slug === pageSlug)[0]
     // get author infomation
     const author = await fetch('/assets/author/authors.json')
       .then((res) => res.json())
@@ -18,6 +21,7 @@
     }
     return {
       props: {
+        articles,
         article,
         author,
         pageUrl,
@@ -33,12 +37,11 @@
   import { isMobile } from '$lib/utils/MobileDetector'
   import { setContext } from 'svelte'
 
+  export let articles
   export let article
   export let author
   export let pageUrl
   export let articlePath
-
-  console.log(article)
 
   // let child components can access page prametes by setting setting context
   setContext('article-path', {
@@ -454,6 +457,7 @@
     article > :global(p) {
       font-size: var(--font-size-4);
       padding-bottom: var(--space-5);
+      line-height: var(--line-height-body-d);
     }
 
     article > :global(blockquote) {
@@ -694,8 +698,12 @@
   <div class="read-more">
     <div class="title">更多文章</div>
     <div class="articles">
-      {#each article.read_more as article}
-        <ArticleBlock readMoreArticleSlug={article} />
+      {#each article.read_more as readMoreSlug}
+        {#each articles.filter((d) =>
+          d.slug.includes(readMoreSlug)
+        ) as { cover_image, category, slug, title, description, published_date }}
+          <ArticleBlock {cover_image} {category} {slug} {title} {description} {published_date} />
+        {/each}
       {/each}
     </div>
   </div>
