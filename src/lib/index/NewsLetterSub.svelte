@@ -46,6 +46,7 @@
     transition: color 0.15s linear;
     padding: var(--space-1) 0;
     cursor: pointer;
+    border-radius: 0;
   }
 
   input[type='submit']:focus {

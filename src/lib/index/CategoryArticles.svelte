@@ -177,11 +177,6 @@
       row-gap: var(--space-8);
     }
 
-    .article > .title {
-      font-size: var(--font-size-5);
-      margin-bottom: var(--space-2);
-    }
-
     /* category nav */
     .category-nav > ul {
       margin: var(--space-6) 0;
