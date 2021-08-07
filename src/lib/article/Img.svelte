@@ -89,7 +89,7 @@
   @media (min-width: 640px) {
     figure {
       width: 640px;
-      transform: translateX(calc((530px - 640px) / 2));
+      transform: translateX(calc((570px - 640px) / 2));
     }
   }
 

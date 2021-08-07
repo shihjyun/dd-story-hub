@@ -10,6 +10,7 @@
       .then((res) => res.json())
       .then((data) => data.filter((d) => d.id === article.author_id))
       .then((d) => d[0])
+
     // get current page url
     const pageUrl = page.host + page.path
 
@@ -66,6 +67,7 @@
   }
 
   .article-meta > .category {
+    display: inline-block;
     font-size: var(--font-size-3);
     color: var(--green-5);
     margin-bottom: var(--space-4);
@@ -200,26 +202,58 @@
   }
 
   article :global(strong) {
-    font-weight: 600;
+    font-weight: 500;
   }
 
   article > :global(ul) {
-    letter-spacing: var(--letter-spacing-wide);
-    margin-left: var(--space-5);
+    margin: 0 0 var(--space-3) var(--space-5);
     list-style-position: outside;
     list-style-type: disc;
   }
 
-  article > :global(li) {
-    font-size: var(--font-size-2);
-    color: var(--grey-6);
+  article > :global(ul > li) {
+    font-size: var(--font-size-3);
+    color: var(--grey-7);
     line-height: var(--line-height-3);
-    letter-spacing: var(--letter-spacing-wide);
-    padding-bottom: var(--space-4);
+    padding-bottom: var(--space-3);
+  }
+
+  article > :global(ol) {
+    margin: 0 0 var(--space-3) var(--space-5);
+    list-style-position: outside;
+    list-style-type: decimal;
+  }
+
+  article > :global(ol > li) {
+    font-size: var(--font-size-3);
+    color: var(--grey-7);
+    line-height: var(--line-height-3);
+    padding-bottom: var(--space-3);
   }
 
   article > :global(li:last-of-type) {
     padding-bottom: var(--space-5);
+  }
+
+  article :global(code) {
+    font-size: var(--font-size-3);
+    padding: 0 var(--space-0);
+    background-color: var(--grey-2);
+  }
+
+  article :global(pre) {
+    padding: var(--space-2);
+    background-color: var(--grey-2);
+    margin-bottom: var(--space-5);
+  }
+
+  article :global(pre > code) {
+    padding: 0;
+    background-color: initial;
+  }
+
+  article :global(iframe) {
+    padding: var(--space-5) 0;
   }
 
   /* author bottom */
@@ -346,7 +380,6 @@
     }
 
     .article-meta > .category {
-      display: inline-block;
       margin-bottom: var(--space-3);
     }
 
@@ -445,12 +478,12 @@
     }
 
     article > :global(h2) {
-      font-size: var(--font-size-5);
+      font-size: var(--font-size-6);
       padding: var(--space-2) 0 var(--space-1) 0;
     }
 
     article > :global(h3) {
-      font-size: var(--font-size-4);
+      font-size: var(--font-size-5);
       padding: var(--space-2) 0 var(--space-1) 0;
     }
 
@@ -475,16 +508,31 @@
       list-style-type: disc;
     }
 
-    article > :global(li) {
-      font-size: var(--font-size-2);
-      color: var(--grey-6);
+    article > :global(ul > li) {
+      font-size: var(--font-size-4);
+      color: var(--grey-7);
       line-height: var(--line-height-3);
       letter-spacing: var(--letter-spacing-wide);
-      padding-bottom: var(--space-4);
+      padding-bottom: var(--space-3);
     }
 
     article > :global(li:last-of-type) {
       padding-bottom: var(--space-5);
+    }
+
+    article > :global(ol) {
+      letter-spacing: var(--letter-spacing-wide);
+      margin-left: var(--space-5);
+      list-style-position: outside;
+      list-style-type: decimal;
+    }
+
+    article > :global(ol > li) {
+      font-size: var(--font-size-4);
+      color: var(--grey-7);
+      line-height: var(--line-height-3);
+      letter-spacing: var(--letter-spacing-wide);
+      padding-bottom: var(--space-3);
     }
 
     /* author bottom */
@@ -579,9 +627,11 @@
   <meta property="twitter:description" content={article.description} />
   <meta name="twitter:image" content={article.cover_image} />
   <meta property="article:section" content={article.category} />
-  {#each article.meta_tags.split(',') as tag}
-    <meta property="article:tag" content={tag} />
-  {/each}
+  {#if article.meta_tags}
+    {#each article.meta_tags.split(',') as tag}
+      <meta property="article:tag" content={tag} />
+    {/each}
+  {/if}
   <meta property="article:published_time" content={article.published_date} />
   <meta property="article:modified_time" content={article.updated_date} />
   <meta name="pubdate" content={article.published_date} />
@@ -635,9 +685,11 @@
 </article>
 <!-- tags -->
 <div class="tags">
-  {#each article.tags.split(',') as tag}
-    <span>#{tag}</span>
-  {/each}
+  {#if article.tags}
+    {#each article.tags.split(',') as tag}
+      <span>#{tag}</span>
+    {/each}
+  {/if}
 </div>
 
 <!-- author info -->

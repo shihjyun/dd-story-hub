@@ -171,7 +171,7 @@
     </p>
     <h2>編輯群</h2>
     <div class="authors">
-      {#each authors as { name, avatar, bio_title, id, social }}
+      {#each authors.slice(0, 5) as { name, avatar, bio_title, id, social }}
         <div class="author">
           <img class="author-avatar" src={`/assets/author/avatar/${avatar}`} alt={name + "'s avatar"} />
           <div class="author-meta">

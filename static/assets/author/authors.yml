@@ -47,6 +47,12 @@
     - twitter: https://twitter.com/got_tyyni33
     - medium: https://medium.com/@got_tyyni33
 
-
+- name: DD Story Hub
+  id: ddstoryhub
+  bio_title: DD Stroy Hub 編輯群帳號
+  bio: DD Stroy Hub 編輯群共用帳號
+  avatar: ddstoryhub.png
+  social: 
+    - email: ddstoryhub@gmail.com
 
 

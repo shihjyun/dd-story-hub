@@ -26,7 +26,7 @@
   .toc > :global(ul) {
     padding-bottom: var(--space-6);
     list-style-position: outside;
-    list-style-type: '\b7';
+    list-style-type: '・';
     font-size: var(--font-size-3);
     color: var(--grey-7);
     line-height: var(--line-height-body);
