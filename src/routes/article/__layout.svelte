@@ -36,7 +36,7 @@
   import { formatDate, categoryPathName } from '$lib/utils/utils.js'
   import ArticleBlock from '$lib/shared/ArticleBlock.svelte'
   import { isMobile } from '$lib/utils/MobileDetector'
-  import { setContext } from 'svelte'
+  import { setContext, onMount } from 'svelte'
 
   export let articles
   export let article
@@ -54,6 +54,33 @@
   function handleClickCopyBtn() {
     copyTipCount += 1
     navigator.clipboard.writeText(pageUrl)
+  }
+
+  // remove disqus ads iframe
+  let observer, timer
+  onMount(() => {
+    observer = new IntersectionObserver(function (entry) {
+      if (entry[0].isIntersecting) {
+        timer = setInterval(removeDisqusAds, 500)
+        observer.unobserve(document.querySelector('#disqus_thread'))
+      }
+    })
+    observer.observe(document.querySelector('#disqus_thread'))
+  })
+
+  function removeDisqusAds() {
+    if (document.querySelectorAll('#disqus_thread > iframe')) {
+      const iframes = document.querySelectorAll('#disqus_thread > iframe')
+      if (iframes.length > 1) {
+        for (let i = 0; i < iframes.length; i++) {
+          const elm = iframes[i]
+          if (!elm.getAttribute('src')) {
+            elm.remove()
+          }
+        }
+        clearInterval(timer)
+      }
+    }
   }
 </script>
 
