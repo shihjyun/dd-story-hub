@@ -12,7 +12,7 @@
       .then((d) => d[0])
 
     // get current page url
-    const pageUrl = page.host + page.path
+    const pageUrl = 'https://ddstoryhub.com' + page.path
 
     if (!article || !author) {
       return {
