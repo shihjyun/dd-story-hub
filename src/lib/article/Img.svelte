@@ -34,6 +34,9 @@
       leftImg.parentNode.style.width = sideBySideWidthRatio.leftRatio + '%'
       rightImg.parentNode.style.width = sideBySideWidthRatio.rightRatio + '%'
     }
+  } else if (mounted && leftImg && rightImg && $isMobile) {
+    leftImg.parentNode.style.width = '100%'
+    rightImg.parentNode.style.width = '100%'
   }
 </script>
 
@@ -150,15 +153,15 @@
   class:base-text={type === 'base-text'}
 >
   {#if type === 'base'}
-    <img {src} {alt} />
+    <img {src} loading="lazy" {alt} />
   {:else if type === 'cover'}
-    <img class="cover" {src} {alt} />
+    <img class="cover" {src} loading="lazy" {alt} />
   {:else if type === 'base-text'}
-    <img class="base-text" {src} {alt} />
+    <img class="base-text" {src} loading="lazy" {alt} />
   {:else if type === 'side-by-side'}
     <div class="wrap">
-      <div><img bind:this={leftImg} src={srcLeft} alt={altLeft} /></div>
-      <div><img bind:this={rightImg} src={srcRight} alt={altRight} /></div>
+      <div><img bind:this={leftImg} src={srcLeft} loading="lazy" alt={altLeft} /></div>
+      <div><img bind:this={rightImg} src={srcRight} loading="lazy" alt={altRight} /></div>
     </div>
   {/if}
   {#if type === 'base-text'}

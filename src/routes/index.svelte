@@ -14,8 +14,6 @@
   export let data
 </script>
 
-<style>
-</style>
 
 <svelte:head>
   <title>DD Story Hub 融數基地</title>
@@ -51,5 +49,5 @@
   <NewsLetterSub />
 </section>
 <section>
-  <CategoryArticles articles={data} />
+  <CategoryArticles articles={data.filter(d => d.category !== 'DD文件')} />
 </section>

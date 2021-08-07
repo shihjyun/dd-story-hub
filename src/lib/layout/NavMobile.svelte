@@ -40,7 +40,6 @@
     position: sticky;
     top: 0;
     box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.15);
-    margin-bottom: var(--space-4);
     z-index: 100000;
     user-select: none;
     height: 50px;

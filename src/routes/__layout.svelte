@@ -27,7 +27,15 @@
 </script>
 
 <style>
-  /* your styles go here */
+  .nav-wrap {
+    margin-bottom: var(--space-4);
+  }
+
+  @media (min-width: 768px) {
+    .nav-wrap {
+      margin-bottom: var(--space-6);
+    }
+  }
 </style>
 
 <!-- device detector  -->
@@ -36,11 +44,13 @@
 {/if}
 
 <!-- avoid to mount desktop UI when detecting function done -->
-{#if $isMobile}
-  <NavMobile isArticleNav={isInArticlePages} pageUrl={currentUrl} />
-{:else}
-  <Nav isArticleNav={isInArticlePages} pageUrl={currentUrl} />
-{/if}
+<div class="nav-wrap">
+  {#if $isMobile && $isMobile !== 'detecting'}
+    <NavMobile isArticleNav={isInArticlePages} pageUrl={currentUrl} />
+  {:else if !$isMobile && $isMobile !== 'detecting'}
+    <Nav isArticleNav={isInArticlePages} pageUrl={currentUrl} />
+  {/if}
+</div>
 
 <main>
   <slot />
