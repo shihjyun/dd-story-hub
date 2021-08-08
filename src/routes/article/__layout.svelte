@@ -701,7 +701,9 @@
     <blockquote>{article.description}</blockquote>
     <figure class="cover">
       <img src={article.cover_image} alt="cover" />
-      <figcaption>{article.cover_image_description}</figcaption>
+      {#if article.cover_image_description}
+        <figcaption>{article.cover_image_description}</figcaption>
+      {/if}
     </figure>
   </div>
 {/if}

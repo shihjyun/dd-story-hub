@@ -14,10 +14,7 @@
 <style>
   nav {
     background-color: #fdfdfd;
-    position: sticky;
-    top: 0;
     box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.15);
-    z-index: 100000;
     user-select: none;
   }
 

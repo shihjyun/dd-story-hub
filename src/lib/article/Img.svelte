@@ -42,7 +42,7 @@
 
 <style>
   img {
-    width: 100%;
+    margin: 0 auto;
   }
   figcaption :global(a) {
     text-decoration: underline;

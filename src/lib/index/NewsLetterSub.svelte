@@ -26,12 +26,18 @@
   }
 
   .mail-input {
+    color: var(--grey-6);
     width: 100%;
-    font-size: var(--font-size-4);
+    font-size: var(--font-size-5);
+    font-weight: 300;
     height: 46px;
     outline: 0;
     padding: var(--space-1) var(--space-3);
     border-radius: 0;
+  }
+
+  .mail-input::placeholder {
+    color: var(--grey-3);
   }
 
   .mail-input:focus {
@@ -43,6 +49,7 @@
     background-color: var(--grey-1);
     color: var(--green-6);
     font-family: Roboto;
+    font-weight: 400;
     transition: color 0.15s linear;
     padding: var(--space-1) 0;
     cursor: pointer;
@@ -72,12 +79,12 @@
 
     form {
       width: 45%;
-      grid-template-columns: 0.82fr 0.18fr;
+      grid-template-columns: 1fr 100px;
       margin-left: var(--space-5);
     }
 
     .mail-input {
-      padding: var(--space-1);
+      padding: var(--space-1) var(--space-3);
     }
 
     input[type='submit'] {
@@ -102,7 +109,7 @@
       class="mail-input"
       type="email"
       name="email"
-      placeholder="ddstoryhub@mail.com"
+      placeholder="xxx@mail.com"
       aria-label="email address"
       bind:value={email}
     />

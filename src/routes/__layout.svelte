@@ -29,6 +29,9 @@
 <style>
   .nav-wrap {
     margin-bottom: var(--space-4);
+    position: sticky;
+    top: 0;
+    z-index: 100000;
   }
 
   @media (min-width: 768px) {

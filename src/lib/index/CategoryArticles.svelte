@@ -87,7 +87,7 @@
   }
 
   .selected {
-    color: var(--grey-7);
+    color: var(--grey-7) !important;
     border-bottom: 2px var(--green-2) solid;
   }
 
