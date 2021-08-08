@@ -585,7 +585,7 @@
     }
 
     .share-icon-list {
-      gap: var(--space-4);
+      gap: var(--space-3);
     }
 
     .share-icon-list .share-icon {
