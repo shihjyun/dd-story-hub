@@ -42,7 +42,7 @@
   let showSelection = false
 
   // load more setting
-  let limitArticleAmount = $isMobile ? 4 : 9
+  $: limitArticleAmount = $isMobile ? 4 : 9
   $: selectedArticleAmount = selectedArticles.length
   $: showLoadMoreButton = limitArticleAmount < selectedArticleAmount ? true : false
 

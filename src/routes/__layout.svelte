@@ -15,12 +15,6 @@
   import MobileDetector from '$lib/utils/MobileDetector.svelte'
   import { isMobile } from '$lib/utils/MobileDetector.js'
 
-  let isOnMount = false
-
-  onMount(() => {
-    isOnMount = true
-  })
-
   // detect if user is in article pages
   export let currentUrl
   $: isInArticlePages = currentUrl.includes('/article')
@@ -28,6 +22,7 @@
 
 <style>
   .nav-wrap {
+    height: 50px;
     margin-bottom: var(--space-4);
     position: sticky;
     top: 0;
@@ -42,9 +37,7 @@
 </style>
 
 <!-- device detector  -->
-{#if isOnMount}
-  <MobileDetector />
-{/if}
+<MobileDetector />
 
 <!-- avoid to mount desktop UI when detecting function done -->
 <div class="nav-wrap">

@@ -27,7 +27,7 @@
   export let article, categorySlug
 
   $: selectedArticleAmount = article.length
-  let limitArticleAmount = $isMobile ? 4 : 9
+  $: limitArticleAmount = $isMobile ? 4 : 9
   $: showLoadMoreButton = limitArticleAmount < selectedArticleAmount ? true : false
 
   function loadMore() {

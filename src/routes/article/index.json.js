@@ -31,7 +31,7 @@ export async function get({ query }) {
 	const articles = await Promise.all(articlePromises);
 	// filter article by limit, author, category
 	const publishedArticles = articles
-		.sort((a, b) => (new Date(a.date) > new Date(b.date) ? -1 : 1))
+		.sort((a, b) => (new Date(a.published_date) < new Date(b.published_date) ? 1 : -1))
 		.filter(d => category === 'all' | categoryPathName(d.category) === category)
 		.filter(d => author === 'all' | d.author_id === author)
 		.slice(0, limit);

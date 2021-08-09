@@ -30,12 +30,12 @@
   export let article, author, authorSlug
 
   $: selectedArticleAmount = article.length
-  let limitArticleAmount = $isMobile ? 4 : 9
+  $: limitArticleAmount = $isMobile ? 4 : 9
   $: showLoadMoreButton = limitArticleAmount < selectedArticleAmount ? true : false
 
   function loadMore() {
     if (limitArticleAmount < selectedArticleAmount) {
-      limitArticleAmount += $isMobile ? 4 : 9
+      limitArticleAmount += $isMobile ? 4 : 6
     }
   }
 </script>
