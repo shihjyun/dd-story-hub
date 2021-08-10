@@ -56,9 +56,10 @@
     navigator.clipboard.writeText(pageUrl)
   }
 
-  // remove disqus ads iframe
+  // for remove disqus
   let observer, timer
   onMount(() => {
+    // remove disqus ads iframe
     observer = new IntersectionObserver(function (entry) {
       if (entry[0].isIntersecting) {
         timer = setInterval(removeDisqusAds, 500)
@@ -66,6 +67,13 @@
       }
     })
     observer.observe(document.querySelector('#disqus_thread'))
+
+    // add `target="_blank"` to a tags within article
+    const aTags = document.querySelectorAll('article a')
+    for (let i = 0; i < aTags.length; i++) {
+      const aTag = aTags[i]
+      aTag.setAttribute('target', '_blank')
+    }
   })
 
   function removeDisqusAds() {
