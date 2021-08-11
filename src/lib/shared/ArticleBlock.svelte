@@ -89,7 +89,7 @@
   {#if category}
     <a class="category" sveltekit:prefetch href={`/category/${categoryPathName(category)}`}>{category}</a>
   {/if}
-  <a class="cover" href={`/article/${slug}`} sveltekit:prefetch><img src={cover_image} alt="cover" /></a>
+  <a class="cover" href={`/article/${slug}`} sveltekit:prefetch><img src={cover_image} alt="cover" width="100%" /></a>
   <a class="title" href={`/article/${slug}`} sveltekit:prefetch>{title}</a>
   <div class="description">{description}</div>
   <div class="date">{formatDate(Date.parse(published_date))}</div>
