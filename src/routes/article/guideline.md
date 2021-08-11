@@ -15,7 +15,7 @@ updated_date: 2021-04-06 # 必填，文章修改日期，如果是第一次發�
 tags: # 必填，顯示在文章末端的 tag，主要用途是給讀者辨識這篇文章的屬性，填寫格式：tag1,tag2,tag3 ...
 meta_tags: # 必填，給搜尋引擎看的，這個 tags 可以填發散、隨性一點，填寫格式：tag1,tag2,tag3 ...
 category: DD文件 # 必填，你的文章是哪個種類（資訊圖表/資料分析/數位敘事/經驗分享）
-cover_image: https://ddstoryhub.com/assets/article/guideline/cover.png # 必填，文章封面圖片，也會成為 facebook 的分享圖片，比例請使用 1200 * 630
+cover_image: https://ddstoryhub.com/assets/article/guideline/cover.png # 必填，文章封面圖片，也會成為 facebook 的分享圖片，比例請使用 1200 * 630 (圖片名稱請命名為 `cover.xxx` 放入文章資料夾中)
 cover_image_description: 很多工人啊！ # 選填，封面圖片說明
 read_more: # 必填，推薦其他站上的文章，請填寫文章網址 article 之後的編號，請至少填寫1篇，至多6篇 
   - 2021-0606
@@ -57,6 +57,7 @@ cover_full: false # 文章首圖是否要用滿螢幕模式
 
 - 一份以 **文章slug** 為檔名的 `.md` 檔案
 - 一個以 **文章slug** 為名稱的資料夾，用來放這篇文章會用到的一些檔案（圖片 ... 等）
+- 一張 1200 * 630 的封面圖片，並將此圖片命名為 `cover.xxx` 
 
 以現在這篇來說，目錄結構會長成像這樣：
 
