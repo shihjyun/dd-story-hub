@@ -1,8 +1,15 @@
 <script>
-  import { formatDate, categoryPathName } from '$lib/utils/utils.js'
+  import { formatDate, categoryPathName, suffixPath, isCached } from '$lib/utils/utils.js'
+  import { onMount } from 'svelte'
 
   // for normal article block
   export let category, slug, cover_image, title, description, published_date
+
+  // detect if image is isCached
+  let imgIsCache = false
+  onMount(() => {
+    imgIsCache = isCached(cover_image)
+  })
 </script>
 
 <style>
@@ -89,7 +96,16 @@
   {#if category}
     <a class="category" sveltekit:prefetch href={`/category/${categoryPathName(category)}`}>{category}</a>
   {/if}
-  <a class="cover" href={`/article/${slug}`} sveltekit:prefetch><img src={cover_image} alt="cover" width="100%" /></a>
+  <a class="cover" href={`/article/${slug}`} sveltekit:prefetch
+    ><img
+      class={imgIsCache ? '' : 'lazyload'}
+      src={imgIsCache ? cover_image : suffixPath(cover_image, '-ph')}
+      alt="cover"
+      width="100%"
+      data-src={cover_image}
+      load="false"
+    />
+  </a>
   <a class="title" href={`/article/${slug}`} sveltekit:prefetch>{title}</a>
   <div class="description">{description}</div>
   <div class="date">{formatDate(Date.parse(published_date))}</div>

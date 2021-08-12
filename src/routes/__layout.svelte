@@ -14,10 +14,40 @@
   import { onMount } from 'svelte'
   import MobileDetector from '$lib/utils/MobileDetector.svelte'
   import { isMobile } from '$lib/utils/MobileDetector.js'
+  // utlis function
+  import { handleLazyloadImageIsIntersection } from '$lib/utils/utils.js'
 
   // detect if user is in article pages
   export let currentUrl
   $: isInArticlePages = currentUrl.includes('/article')
+
+  // lazy load all of the images that class contain `lazyload`
+  let observer
+  onMount(() => {
+    setTimeout(() => {
+      observeLazyloadImages()
+    }, 1000)
+
+    setInterval(() => {
+      if (document.querySelectorAll('.lazyload')) {
+        const lazyloadImgs = document.querySelectorAll('.lazyload')
+        lazyloadImgs.forEach((img) => {
+          if (img.getAttribute('load') === 'false') {
+            observer.observe(img)
+          }
+        })
+      }
+    }, 2000)
+  })
+
+  function observeLazyloadImages() {
+    observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => handleLazyloadImageIsIntersection(entry, observer))
+      },
+      { threshold: 0.2 }
+    )
+  }
 </script>
 
 <style>
