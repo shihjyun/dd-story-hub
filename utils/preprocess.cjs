@@ -4,6 +4,9 @@ const { generateAuthorList } = require('./authorRegister.cjs')
 const { updateGsxData } = require('./gsxDataUpdater.cjs')
 // for bookmark
 const { getBookmarkMetaDataAll } = require('./bookmarkDataCrawler.cjs')
+// for image(lazy load)
+const { resizeArticleImages } = require('./imageHandler.cjs')
+
 
 
 
@@ -13,3 +16,7 @@ const { getBookmarkMetaDataAll } = require('./bookmarkDataCrawler.cjs')
 generateAuthorList()
 updateGsxData()
 getBookmarkMetaDataAll()
+resizeArticleImages()
+
+
+
