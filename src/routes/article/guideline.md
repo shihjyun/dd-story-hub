@@ -211,7 +211,7 @@ cover_full: false # 文章首圖是否要用滿螢幕模式
 
 **👊圖片：圖左文右👊**
 
-<Img type="base-text" alt="一般圖片" src="../../assets/article/2021-0206/5.png">
+<Img type="base-text" alt="一般圖片" src="../../assets/article/guideline/2.png">
 
 A. 本土確診數暴增，所以大家開始搶著接種疫苗
 
@@ -222,8 +222,8 @@ B. 接種率變高，大家放鬆戒備，恢復人與人的連結，結果確�
 **👊圖片：在左右兩旁站好👊**
 
 <Img type="side-by-side" 
-     srcLeft="../../assets/article/2021-0206/5.png" 
-     srcRight="../../assets/article/2021-0206/5.png"
+     srcLeft="../../assets/article/guideline/3-left.png" 
+     srcRight="../../assets/article/guideline/3-right.png"
      altLeft="左邊的 alt"
      altRight="右邊的 alt">
 

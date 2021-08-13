@@ -9,15 +9,43 @@
   export let altLeft = ''
   export let altRight = ''
 
-  import { onMount } from 'svelte'
+  import { onMount, getContext } from 'svelte'
   import { getSideBySideImgOptimalWidth } from '$lib/article/utlis.js'
+  import { suffixPath, isCached } from '$lib/utils/utils.js'
 
-  let leftImg, rightImg
+  let leftImg, rightImg, img, observer
   let mounted = false
   let sideBySideWidthRatio
 
+  // get images' meta
+  let imgMeta
+  if (src) {
+    // base/base-text/cover
+    imgMeta = getContext('images-meta').imagesMeta.filter((d) => src.includes(d.img))
+  } else {
+    // side-by-side
+    imgMeta = getContext('images-meta').imagesMeta.filter((d) => [srcLeft, srcRight].includes(d.img))
+  }
+
   onMount(() => {
     mounted = true
+
+    // implement lazy load
+    observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => handleLazyImageIsIntersectionInArticle(entry))
+      },
+      { threshold: 0.2 }
+    )
+
+    setTimeout(() => {
+      if (src) {
+        observer.observe(img)
+      } else {
+        observer.observe(leftImg)
+        observer.observe(rightImg)
+      }
+    }, 1000)
   })
 
   $: if (mounted && leftImg && rightImg && !$isMobile) {
@@ -37,6 +65,17 @@
   } else if (mounted && leftImg && rightImg && $isMobile) {
     leftImg.parentNode.style.width = '100%'
     rightImg.parentNode.style.width = '100%'
+  }
+
+  function handleLazyImageIsIntersectionInArticle(entry) {
+    if (entry.isIntersecting && src) {
+      img.setAttribute('src', img.dataset.src)
+      observer.disconnect()
+    } else if (entry.isIntersecting && srcLeft && srcRight) {
+      leftImg.setAttribute('src', leftImg.dataset.src)
+      rightImg.setAttribute('src', rightImg.dataset.src)
+      observer.disconnect()
+    }
   }
 </script>
 
@@ -153,15 +192,31 @@
   class:base-text={type === 'base-text'}
 >
   {#if type === 'base'}
-    <img {src} loading="lazy" {alt} />
+    <img bind:this={img} src={suffixPath(src, '-ph')} {alt} width={imgMeta[0].width} data-src={src} />
   {:else if type === 'cover'}
-    <img class="cover" {src} loading="lazy" {alt} />
+    <img bind:this={img} class="cover" src={suffixPath(src, '-ph')} {alt} width={imgMeta[0].width} data-src={src} />
   {:else if type === 'base-text'}
-    <img class="base-text" {src} loading="lazy" {alt} />
+    <img bind:this={img} class="base-text" src={suffixPath(src, '-ph')} {alt} width={imgMeta[0].width} data-src={src} />
   {:else if type === 'side-by-side'}
     <div class="wrap">
-      <div><img bind:this={leftImg} src={srcLeft} loading="lazy" alt={altLeft} /></div>
-      <div><img bind:this={rightImg} src={srcRight} loading="lazy" alt={altRight} /></div>
+      <div>
+        <img
+          bind:this={leftImg}
+          src={suffixPath(srcLeft, '-ph')}
+          alt={altLeft}
+          width={imgMeta[0].width}
+          data-src={srcLeft}
+        />
+      </div>
+      <div>
+        <img
+          bind:this={rightImg}
+          src={suffixPath(srcRight, '-ph')}
+          alt={altRight}
+          width={imgMeta[1].width}
+          data-src={srcRight}
+        />
+      </div>
     </div>
   {/if}
   {#if type === 'base-text'}

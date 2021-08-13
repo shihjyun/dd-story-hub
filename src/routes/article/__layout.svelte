@@ -10,6 +10,8 @@
       .then((res) => res.json())
       .then((data) => data.filter((d) => d.id === article.author_id))
       .then((d) => d[0])
+    // get images metadata
+    const imagesMeta = await fetch(`/assets/article/${pageSlug}/imagesMeta.json`).then((res) => res.json())
 
     // get current page url
     const pageUrl = 'https://ddstoryhub.com' + page.path
@@ -26,6 +28,7 @@
         article,
         author,
         pageUrl,
+        imagesMeta,
         articlePath: page.path,
       },
     }
@@ -43,10 +46,18 @@
   export let author
   export let pageUrl
   export let articlePath
+  export let imagesMeta
 
   // let child components can access page prametes by setting setting context
   setContext('article-path', {
     path: articlePath,
+  })
+
+  setContext('images-meta', {
+    imagesMeta: imagesMeta.map((d) => {
+      d.img = d.img.replace('static/', '../../')
+      return d
+    }),
   })
 
   // handle copy page url
