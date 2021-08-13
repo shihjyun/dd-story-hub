@@ -25,6 +25,7 @@
 
   .cover > img {
     position: absolute;
+    max-width: 100%;
   }
 
   .cover:after {

@@ -36,7 +36,7 @@
     }
   }
 
-  const categoryName = article[0].category
+  $: categoryName = article[0].category
 </script>
 
 <style>
@@ -142,11 +142,13 @@
 
 <div class="container">
   <h1>{categoryName}</h1>
-  <div in:fade class="articles">
-    {#each article.slice(0, limitArticleAmount) as { cover_image, slug, title, description, published_date }}
-      <ArticleBlock {cover_image} {slug} {title} {description} {published_date} />
-    {/each}
-  </div>
+  {#key categoryName}
+    <div in:fade class="articles">
+      {#each article.slice(0, limitArticleAmount) as { cover_image, slug, title, description, published_date }}
+        <ArticleBlock {cover_image} {slug} {title} {description} {published_date} />
+      {/each}
+    </div>
+  {/key}
   {#if showLoadMoreButton}
     <button on:click={loadMore}>載入更多</button>
   {/if}
