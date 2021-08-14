@@ -715,7 +715,7 @@
     </div>
     <blockquote>{article.description}</blockquote>
     <figure class="cover">
-      <img src={article.cover_image} alt="cover" />
+      <img src={article.cover_image} alt="cover" width="100%" />
       {#if article.cover_image_description}
         <figcaption>{article.cover_image_description}</figcaption>
       {/if}
