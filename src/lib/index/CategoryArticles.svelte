@@ -58,7 +58,7 @@
 
   function loadMore() {
     if (limitArticleAmount < selectedArticleAmount) {
-      limitArticleAmount += 4
+      limitArticleAmount += $isMobile ? 4 : 6
     }
   }
 </script>

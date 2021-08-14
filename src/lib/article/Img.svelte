@@ -40,7 +40,7 @@
       (entries) => {
         entries.forEach((entry) => handleLazyImageIsIntersectionInArticle(entry))
       },
-      { threshold: 0.2 }
+      { threshold: 0 }
     )
 
     setTimeout(() => {

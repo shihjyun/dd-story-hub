@@ -684,7 +684,7 @@
   <!-- full cover -->
   <div class="full-cover">
     <figure class="cover">
-      <img src={article.cover_image} alt="cover" />
+      <img src={article.cover_image} alt="cover" width="100%" />
     </figure>
     <div class="dark-bg" />
 
