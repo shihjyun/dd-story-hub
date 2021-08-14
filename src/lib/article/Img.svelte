@@ -17,14 +17,19 @@
   let mounted = false
   let sideBySideWidthRatio
 
+  // get article path
+  let articlePath = getContext('article-path').path
+
   // get images' meta
   let imgMeta
   if (src) {
     // base/base-text/cover
-    imgMeta = getContext('images-meta').imagesMeta.filter((d) => src.includes(d.img))
+    imgMeta = getContext('images-meta').imagesMeta.filter((d) => checkSrc(src).includes(d.img))
   } else {
     // side-by-side
-    imgMeta = getContext('images-meta').imagesMeta.filter((d) => [srcLeft, srcRight].includes(d.img))
+    imgMeta = getContext('images-meta').imagesMeta.filter((d) =>
+      [checkSrc(srcLeft), checkSrc(srcRight)].includes(d.img)
+    )
   }
 
   onMount(() => {
@@ -75,6 +80,15 @@
       leftImg.setAttribute('src', leftImg.dataset.src)
       rightImg.setAttribute('src', rightImg.dataset.src)
       observer.disconnect()
+    }
+  }
+
+  // function check images path
+  function checkSrc(srcString) {
+    if (!srcString.includes(`../../assets${articlePath}`)) {
+      return `../../assets${articlePath}/${srcString}`
+    } else {
+      return srcString
     }
   }
 </script>
@@ -192,29 +206,49 @@
   class:base-text={type === 'base-text'}
 >
   {#if type === 'base'}
-    <img bind:this={img} src={suffixPath(src, '-ph')} {alt} width={imgMeta[0].width} data-src={src} />
+    <img
+      bind:this={img}
+      src={suffixPath(checkSrc(src), '-ph')}
+      {alt}
+      width={imgMeta[0].width}
+      data-src={checkSrc(src)}
+    />
   {:else if type === 'cover'}
-    <img bind:this={img} class="cover" src={suffixPath(src, '-ph')} {alt} width={imgMeta[0].width} data-src={src} />
+    <img
+      bind:this={img}
+      class="cover"
+      src={suffixPath(checkSrc(src), '-ph')}
+      {alt}
+      width={imgMeta[0].width}
+      data-src={checkSrc(src)}
+    />
   {:else if type === 'base-text'}
-    <img bind:this={img} class="base-text" src={suffixPath(src, '-ph')} {alt} width={imgMeta[0].width} data-src={src} />
+    <img
+      bind:this={img}
+      class="base-text"
+      src={suffixPath(checkSrc(src), '-ph')}
+      {alt}
+      width={imgMeta[0].width}
+      data-src={checkSrc(src)}
+    />
   {:else if type === 'side-by-side'}
     <div class="wrap">
       <div>
         <img
           bind:this={leftImg}
-          src={suffixPath(srcLeft, '-ph')}
+          src={suffixPath(checkSrc(srcLeft), '-ph')}
           alt={altLeft}
           width={imgMeta[0].width}
-          data-src={srcLeft}
+          data-src={checkSrc(srcLeft)}
         />
       </div>
       <div>
         <img
           bind:this={rightImg}
-          src={suffixPath(srcRight, '-ph')}
+          src={suffixPath(checkSrc(srcRight), '-ph')}
           alt={altRight}
           width={imgMeta[1].width}
-          data-src={srcRight}
+          data-src={checkSrc(srcRight)}
         />
       </div>
     </div>
