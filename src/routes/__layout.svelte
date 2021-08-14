@@ -28,20 +28,16 @@
       observeLazyloadImages()
     }, 1000)
 
-    setInterval(
-      () => {
-        if (document.querySelectorAll('.lazyload')) {
-          const lazyloadImgs = document.querySelectorAll('.lazyload')
-          lazyloadImgs.forEach((img) => {
-            if (img.getAttribute('load') === 'false') {
-              observer.observe(img)
-            }
-          })
-        }
-        // reduce check times when user in article page
-      },
-      isInArticlePages ? 2000000 : 2000
-    )
+    setInterval(() => {
+      if (document.querySelectorAll('.lazyload')) {
+        const lazyloadImgs = document.querySelectorAll('.lazyload')
+        lazyloadImgs.forEach((img) => {
+          if (img.getAttribute('load') === 'false') {
+            observer.observe(img)
+          }
+        })
+      }
+    }, 2000)
   })
 
   function observeLazyloadImages() {

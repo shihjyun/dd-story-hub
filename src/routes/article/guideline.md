@@ -193,7 +193,7 @@ cover_full: false # 文章首圖是否要用滿螢幕模式
 圖片會稍微小小複雜一點，所以先用文字說明一下需要注意的地方：
 
 - `type` 參數總共有4種可以設定，分別是 `base`(預設)、`cover`、`base-text`、`side-by-side`，它會影響圖片的 layout
-- `src` 開頭參數的 input 都是 **路徑**，圖片的路徑目前一定要寫成：`../../assets/article/slug名稱/圖片檔名`
+- `src` 開頭參數的 input 都是 **路徑**，圖片的路徑目前要寫成：`../../assets/article/slug名稱/圖片檔名` or `圖片檔名` 都可以
 - `alt` 開頭的參數都是圖說，跟一般的 img tag 寫法一樣
 
 **👊圖片：一般圖片👊**
