@@ -30,7 +30,7 @@ const suffixPath = (path, suffix) => {
   const fileName = frags[i-2]  + '.' + frags[i-1]
   const fileNameSuffix = frags[i-2] + suffix + '.' + frags[i-1]
 
-  return path.replace(fileName, fileNameSuffix)
+  return frags[i-1] === 'gif' ? 'http://ddstoryhub.com/assets/index/DD-gif-ph.png' : path.replace(fileName, fileNameSuffix)
 }
 
 

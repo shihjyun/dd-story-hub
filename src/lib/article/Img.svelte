@@ -11,7 +11,7 @@
 
   import { onMount, getContext } from 'svelte'
   import { getSideBySideImgOptimalWidth } from '$lib/article/utlis.js'
-  import { suffixPath, isCached } from '$lib/utils/utils.js'
+  import { suffixPath } from '$lib/utils/utils.js'
 
   let leftImg, rightImg, img, observer
   let mounted = false
