@@ -298,10 +298,6 @@
     background-color: initial;
   }
 
-  article :global(iframe) {
-    padding: var(--space-5) 0;
-  }
-
   /* author bottom */
   .author-bottom {
     display: flex;
