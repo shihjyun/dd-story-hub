@@ -4,12 +4,6 @@
     margin: 0 auto;
   }
 
-  h1 {
-    font-size: var(--font-size-7);
-    color: var(--grey-7);
-    margin-bottom: var(--space-5);
-  }
-
   .container > p {
     text-align: center;
     font-size: var(--font-size-3);

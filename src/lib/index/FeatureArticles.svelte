@@ -54,7 +54,9 @@
   <div class="articles-wrap">
     <h2>精選文章</h2>
     <div class="articles">
-      {#each articles.slice(0, 2) as { cover_image, slug, title, description, published_date }}
+      {#each articles.filter((d) =>
+        ['2021-0527', '2020-0915'].includes(d.slug)
+      ) as { cover_image, slug, title, description, published_date }}
         <ArticleBlock {cover_image} {slug} {title} {description} {published_date} />
       {/each}
     </div>
