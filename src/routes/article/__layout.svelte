@@ -221,6 +221,10 @@
     padding-bottom: var(--space-4);
   }
 
+  article > :global(table) {
+    margin-bottom: var(--space-4);
+  }
+
   article > :global(blockquote) {
     font-size: var(--font-size-3);
     font-weight: 300;
@@ -533,6 +537,10 @@
       font-size: var(--font-size-4);
       padding-bottom: var(--space-5);
       line-height: var(--line-height-body-d);
+    }
+
+    article > :global(table) {
+      margin-bottom: var(--space-5);
     }
 
     article > :global(blockquote) {
