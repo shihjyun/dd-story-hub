@@ -128,6 +128,7 @@
   @media (min-width: 1024px) {
     .container {
       width: 75vw;
+      max-width: 1200px;
     }
   }
 </style>
