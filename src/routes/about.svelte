@@ -163,7 +163,7 @@
 <div class="container">
   <div class="wrap">
     <h1>
-      融樹基地<br />
+      融數基地<br />
       <p>DD Story Hub</p>
     </h1>
     <p>我們是因為喜歡研究數位敘事及資料新聞，而聚集在一起的夥伴，期待能夠透過不同的敘事方式，放大故事影響力。</p>
