@@ -49,16 +49,20 @@
   export let imagesMeta
 
   // let child components can access page prametes by setting setting context
-  setContext('article-path', {
-    path: articlePath,
-  })
+  $: if (articlePath) {
+    setContext('article-path', {
+      path: articlePath,
+    })
+  }
 
-  setContext('images-meta', {
-    imagesMeta: imagesMeta.map((d) => {
-      d.img = d.img.replace('static/', '../../')
-      return d
-    }),
-  })
+  $: if (imagesMeta) {
+    setContext('images-meta', {
+      imagesMeta: imagesMeta.map((d) => {
+        d.img = d.img.replace('static/', '../../')
+        return d
+      }),
+    })
+  }
 
   // handle copy page url
   let copyTipCount = 1
