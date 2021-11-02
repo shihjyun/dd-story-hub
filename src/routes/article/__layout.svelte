@@ -246,12 +246,14 @@
     height: 1px;
   }
 
-  article :global(p > a) {
+  article :global(p > a),
+  article :global(li > a) {
     text-decoration-line: underline;
     transition: opacity 0.1s linear;
   }
 
-  article :global(p > a:hover) {
+  article :global(p > a:hover),
+  article :global(li > a:hover) {
     opacity: 0.8;
   }
 
